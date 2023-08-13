@@ -18,6 +18,6 @@ public abstract class Builder : MonoBehaviour
     public virtual void UpdateIncome()
     {
         float incomeCapital = InitialIncome * locationMultiplayer * upgradeMultiplayer;
-        _income += (int)incomeCapital;
+        _income = (int)incomeCapital;
     }
 }

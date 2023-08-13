@@ -3,31 +3,42 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileShow : MonoBehaviour
-{
-   [SerializeField]private TextMeshProUGUI m_TextMeshProUGUI;
+{ 
+    [SerializeField] private Button buyButton;
 
-    private bool mouseOver;
+    [SerializeField] private Contract contract;
+
+    private void Start()
+    {
+        buyButton.onClick.AddListener(OnClick);
+        buyButton.gameObject.SetActive(false);
+    }
 
     private void OnMouseEnter()
     {
-        mouseOver = true;
-        m_TextMeshProUGUI.enabled = true;
+        if(buyButton != null)   
+        buyButton.gameObject.SetActive(true);
     }
 
     private void OnMouseExit()
     {
-        mouseOver = false;
-        m_TextMeshProUGUI.enabled = false;
+        if(buyButton != null)
+        buyButton?.gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void OnClick()
     {
-        if (mouseOver && Input.GetMouseButtonDown(0)) 
-        {
-            Debug.Log("Click");
-        }
+        contract.gameObject.SetActive(true);
+        contract.StartDisplay();    
+        Purchase();
+    }
+
+    private void Purchase()
+    {
+        Destroy(buyButton.gameObject);
     }
 
 }
