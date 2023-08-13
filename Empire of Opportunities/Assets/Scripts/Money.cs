@@ -6,12 +6,9 @@ using UnityEngine;
 public class Money : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textMeshpro;
-    private string text = "Money";
-
-    private void Update()
+  
+    public void UpdateMoneyText(int amount)
     {
-       textMeshpro.text = text + "";
+        textMeshpro.text = "Money: " + amount.ToString();
     }
-
-
 }

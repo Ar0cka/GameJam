@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int InitialCapital = 1000;
+    private int currentCapital;
+
+    private Money moneyComponent;
+
     void Start()
     {
-        
+        currentCapital = InitialCapital;
+        moneyComponent = FindObjectOfType<Money>().GetComponent<Money>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpgradeCapital()
     {
-        
+        moneyComponent.UpdateMoneyText(currentCapital);
+    }
+   public void AddToTotalCapital(int amount)
+    {
+        currentCapital += amount;
     }
 }
