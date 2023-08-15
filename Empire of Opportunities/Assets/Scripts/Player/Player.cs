@@ -7,17 +7,17 @@ public class Player : MonoBehaviour
     [SerializeField] private int InitialCapital = 1000;
     private int currentCapital;
 
-    private Money moneyComponent;
+    private UIMoneyShow moneyComponent;
 
     void Start()
     {
         currentCapital = InitialCapital;
-        moneyComponent = FindObjectOfType<Money>().GetComponent<Money>();
+        moneyComponent = FindObjectOfType<UIMoneyShow>().GetComponent<UIMoneyShow>();
     }
 
     public void UpgradeCapital()
     {
-        moneyComponent.UpdateMoneyText(currentCapital);
+        moneyComponent.DisplayingText(currentCapital);
     }
    public void AddToTotalCapital(int amount)
     {

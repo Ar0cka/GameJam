@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Builder : MonoBehaviour
 {
-    public int InitialIncome = 2;
-    public int UppgradeCost = 200;
+    protected int InitialIncome = 2;
+    protected int UppgradeCost = 200;
 
     protected int _income;
 
@@ -16,6 +16,11 @@ public abstract class Builder : MonoBehaviour
    
 
     public virtual void UpdateIncome()
+    {
+       CalculatIncome();
+    }
+    
+    private void CalculatIncome()
     {
         float incomeCapital = InitialIncome * locationMultiplayer * upgradeMultiplayer;
         _income = (int)incomeCapital;

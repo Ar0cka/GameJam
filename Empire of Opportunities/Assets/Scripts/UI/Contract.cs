@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class Contract : MonoBehaviour
 {
-    [SerializeField] private GameObject _contract;
     private float disableTimer = 3f;
     public void StartDisplay()
     {

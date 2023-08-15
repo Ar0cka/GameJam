@@ -5,15 +5,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TileShow : MonoBehaviour
+public class ButtonControllerShopStore : MonoBehaviour
 { 
     [SerializeField] private Button buyButton;
 
     [SerializeField] private Contract contract;
 
+    [SerializeField] private StoreShop shop;
+
+    private IBuildableState _buildableState;
+
+    private void Awake()
+    {
+        _buildableState = GetComponent<IBuildableState>();
+
+    }
     private void Start()
     {
         buyButton.onClick.AddListener(OnClick);
+
         buyButton.gameObject.SetActive(false);
     }
 
@@ -31,9 +41,22 @@ public class TileShow : MonoBehaviour
 
     private void OnClick()
     {
-        contract.gameObject.SetActive(true);
-        contract.StartDisplay();    
-        Purchase();
+        if (BuildableState.Instance != null)
+        {
+            BuildableState.Instance.SetBuilded();
+        }
+        if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
+        {
+            shop.UpdateIncome();
+
+            if (contract != null)
+            {
+                contract.gameObject.SetActive(true);
+                contract.StartDisplay();
+            }
+
+            Purchase();
+        } 
     }
 
     private void Purchase()
