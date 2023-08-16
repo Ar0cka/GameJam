@@ -13,13 +13,7 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     [SerializeField] private StoreShop shop;
 
-    private IBuildableState _buildableState;
-
-    private void Awake()
-    {
-        _buildableState = GetComponent<IBuildableState>();
-
-    }
+   
     private void Start()
     {
         buyButton.onClick.AddListener(OnClick);

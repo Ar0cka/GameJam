@@ -13,6 +13,6 @@ public class UIMoneyShow : MonoBehaviour
     }
     private void UpdateMoneyText(int amount)
     {
-        textMeshpro.text = "Money: " + amount.ToString();
+        textMeshpro.text = "Money: " + amount;
     }
 }
