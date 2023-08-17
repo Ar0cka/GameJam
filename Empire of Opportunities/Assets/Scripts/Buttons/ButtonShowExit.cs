@@ -7,6 +7,8 @@ public class ButtonShowExit : MonoBehaviour
 {
     [SerializeField] private Button _buttonExit;
 
+    [SerializeField] private Button _buttonEnter;
+
     [SerializeField] private GameObject _panelUpgrade;
 
     private void Start()
@@ -16,7 +18,15 @@ public class ButtonShowExit : MonoBehaviour
 
     private void OnClick()
     {
-        ExitWindow();
+        if (ButtonManager.Instance != null && ButtonManager.Instance.invisible)
+        {
+            ButtonManager.Instance.SetDeactivateButton();
+        }
+        if (ButtonManager.Instance.invisible == false)
+        {
+            ExitWindow();
+            _buttonEnter.interactable = true;
+        }  
     }
 
     private void ExitWindow()

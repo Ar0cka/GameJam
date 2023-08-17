@@ -18,14 +18,15 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void Update()
     {
-       if (_deduct.currentCapital >= _shop._isUpdateCost) 
+        if (_deduct.currentCapital >= _shop._isUpdateCost && BuildableState.Instance.IsBuildable) 
         {
-            _upgradeLevel.enabled = true;
+            _upgradeLevel.interactable = true;
         }
         else
         {
-            _upgradeLevel.enabled = false;
+            _upgradeLevel.interactable = false;
         }
+
     }
 
     private void OnClick()
@@ -38,10 +39,5 @@ public class ButtonUpgradeLevel : MonoBehaviour
                 _shop.UpdateLevel();
             }
         }
-    }
-
-    private void BeginLevelUp()
-    {
-        _shop.UpdateLevel();
     }
 }

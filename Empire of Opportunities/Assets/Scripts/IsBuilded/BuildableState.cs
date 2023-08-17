@@ -5,7 +5,6 @@ using UnityEngine;
 public class BuildableState : MonoBehaviour, IBuildableState
 {
     private static BuildableState _instance;
-
     public static BuildableState Instance
     {
         get
