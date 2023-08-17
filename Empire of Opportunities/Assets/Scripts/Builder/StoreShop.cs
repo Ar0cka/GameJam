@@ -7,8 +7,11 @@ public class StoreShop : Builder
 {
     [SerializeField] private TextMeshProUGUI _levelText;
 
+    public int _isCostBuild => costBuilding;
+
     void Start()
     {
+        costBuilding = 200;
         locationMultiplayer = 1.5f;
         upgradeMultiplayer = 2f;
         InvokeRepeating("UpdateIncome", 0f, 2f);   

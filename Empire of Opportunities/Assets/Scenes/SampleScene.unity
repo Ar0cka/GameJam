@@ -728,6 +728,7 @@ MonoBehaviour:
   buyButton: {fileID: 1663028339}
   contract: {fileID: 200505270}
   shop: {fileID: 581591634}
+  mainPlayer: {fileID: 821411869}
 --- !u!114 &245629614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2137,8 +2138,9 @@ RectTransform:
   - {fileID: 251154523}
   - {fileID: 1769877472}
   - {fileID: 1614524506}
+  - {fileID: 2118420873}
   m_Father: {fileID: 1490304456}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2563,7 +2565,6 @@ RectTransform:
   - {fileID: 553075360}
   - {fileID: 1663028338}
   - {fileID: 292405840}
-  - {fileID: 2118420873}
   - {fileID: 1254314772}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -3665,17 +3666,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118420872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.9999046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1490304456}
-  m_RootOrder: 3
+  m_Father: {fileID: 1254314772}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -179, y: 146}
+  m_AnchoredPosition: {x: 184, y: 46}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118420874

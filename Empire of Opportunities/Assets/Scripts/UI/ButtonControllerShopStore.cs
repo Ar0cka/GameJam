@@ -13,6 +13,8 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     [SerializeField] private StoreShop shop;
 
+    [SerializeField] private MainPlayer mainPlayer;
+
    
     private void Start()
     {
@@ -41,6 +43,7 @@ public class ButtonControllerShopStore : MonoBehaviour
         }
         if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
         {
+            mainPlayer.Build(shop._isCostBuild);
             shop.UpdateIncome();
 
             if (contract != null)

@@ -7,7 +7,7 @@ public abstract class Builder : MonoBehaviour
     protected int initialIncome = 2;
     protected int upgradeCost = 200;
     private int level = 1;
-
+    protected int costBuilding;
     protected int _income;
 
     protected float locationMultiplayer;

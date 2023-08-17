@@ -24,6 +24,10 @@ public class MainPlayer : MonoBehaviour
     {
             currentCapital -= deductCapital;    
     }
+    public void Build(int costBuild)
+    {
+        currentCapital -= costBuild;
+    }
     public void AddToTotalCapital(int amount)
     {
         currentCapital += amount;
