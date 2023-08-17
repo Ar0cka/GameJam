@@ -15,7 +15,10 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     [SerializeField] private MainPlayer mainPlayer;
 
-   
+    [SerializeField] private UIViewManager _viewer;
+
+    private UIViewManager viewManager;
+
     private void Start()
     {
         buyButton.onClick.AddListener(OnClick);
@@ -52,6 +55,9 @@ public class ButtonControllerShopStore : MonoBehaviour
                 contract.StartDisplay();
             }
 
+            _viewer.IncomeView(shop.Income);
+            _viewer.CostView(shop.UpdateCost);
+
             Purchase();
         } 
     }
@@ -60,5 +66,4 @@ public class ButtonControllerShopStore : MonoBehaviour
     {
         Destroy(buyButton.gameObject);
     }
-
 }

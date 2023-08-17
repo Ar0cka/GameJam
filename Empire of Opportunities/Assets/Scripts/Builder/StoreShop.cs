@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StoreShop : Builder
 {
-    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private UIViewManager _viewer;
 
     public int _isCostBuild => costBuilding;
 
@@ -43,7 +43,7 @@ public class StoreShop : Builder
     {
         if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
         {
-            _levelText.text = "Level: " + _level;
+            _viewer.LevelView(Level);
         }
     }
 }

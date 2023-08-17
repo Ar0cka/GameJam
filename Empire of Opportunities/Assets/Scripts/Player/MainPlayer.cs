@@ -9,16 +9,16 @@ public class MainPlayer : MonoBehaviour
     private int InitialCapital = 1000;
     public int currentCapital;
 
-    private UIMoneyShow moneyComponent;
+    private UIViewManager moneyComponent;
 
     private void Start()
     {
         currentCapital = InitialCapital;
-        moneyComponent = FindObjectOfType<UIMoneyShow>().GetComponent<UIMoneyShow>();
+        moneyComponent = FindObjectOfType<UIViewManager>().GetComponent<UIViewManager>();
     }
     private void Update()
     {
-        moneyComponent.DisplayingText(currentCapital);
+        moneyComponent.MoneyView(currentCapital);
     }
     public void UpdateCapital(int deductCapital)
     {

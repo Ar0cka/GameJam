@@ -8,15 +8,15 @@ public abstract class Builder : MonoBehaviour
     protected int upgradeCost = 200;
     private int level = 1;
     protected int costBuilding;
-    protected int _income;
+   
 
     protected float locationMultiplayer;
     protected float upgradeMultiplayer;
 
-    public int Income => _income;
-    public int _level => level;
+    public int Income => initialIncome;
+    public int Level => level;
 
-    public int _isUpdateCost => upgradeCost;
+    public int UpdateCost => upgradeCost;
     
     private int UpdateUpgradeCost()
     {
@@ -43,6 +43,5 @@ public abstract class Builder : MonoBehaviour
     private void CalculatIncome()
     {
         float incomeCapital = initialIncome * locationMultiplayer * upgradeMultiplayer;
-        _income = (int)incomeCapital;
     }
 }
