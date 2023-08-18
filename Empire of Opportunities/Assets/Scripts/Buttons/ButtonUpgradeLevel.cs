@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ButtonUpgradeLevel : MonoBehaviour
 {
@@ -12,6 +13,15 @@ public class ButtonUpgradeLevel : MonoBehaviour
     [SerializeField] private MainPlayer _deduct;
 
     [SerializeField] private UIViewManager _viewer;
+
+    private IBuildableState _buildableState;
+
+    [Inject]
+    public ButtonUpgradeLevel(IBuildableState buildableState)
+    {
+        _buildableState = buildableState;
+    }
+
     private void Start()
     {
         _upgradeLevel.onClick.AddListener(OnClick);
@@ -19,7 +29,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void Update()
     {
-        if (_deduct.currentCapital >= _shop.UpdateCost && BuildableState.Instance.IsBuildable) 
+        if (_deduct.currentCapital >= _shop.UpdateCost) 
         {
             _upgradeLevel.interactable = true;
         }
@@ -32,7 +42,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void OnClick()
     {
-        if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
+        if (_buildableState != null && _buildableState.IsBuildable)
         {
             if (_deduct.currentCapital >= _shop.UpdateCost)
             {
@@ -40,7 +50,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
                 _shop.UpdateLevel();
             }
             _viewer.CostView(_shop.UpdateCost);
-            _viewer.IncomeView(_shop.Income);
+            _viewer.IncomeView(_shop.InitialIncome);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class StoreShop : Builder
 {
@@ -9,26 +10,31 @@ public class StoreShop : Builder
 
     public int _isCostBuild => costBuilding;
 
+    private IBuildableState _buildableState;
+
+    [Inject]
+    public StoreShop(IBuildableState buildableState)
+    {
+        _buildableState = buildableState;
+    }
+
     void Start()
     {
         costBuilding = 200;
-        locationMultiplayer = 1.5f;
-        upgradeMultiplayer = 2f;
+        _locationMultiplayer = 1.5f;
         InvokeRepeating("UpdateIncome", 0f, 2f);   
     }
     public override void UpdateLevel()
     {
-        if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable) 
+        if (_buildableState != null && _buildableState.IsBuildable) 
         {
             base.UpdateLevel();
         } 
     }
-    public override void UpdateIncome()
+    public void UpdateIncome()
     {
-      if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
+      if (_buildableState != null && _buildableState.IsBuildable)
         {
-            base.UpdateIncome();
-
             TransferringPlayerData();
         }
     }
@@ -36,12 +42,12 @@ public class StoreShop : Builder
     { 
         MainPlayer player = FindAnyObjectByType<MainPlayer>();
 
-        player.AddToTotalCapital(Income);
+        player.AddToTotalCapital(initialIncome);
 
     }
     private void Update()
     {
-        if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
+        if (_buildableState != null && _buildableState.IsBuildable)
         {
             _viewer.LevelView(Level);
         }

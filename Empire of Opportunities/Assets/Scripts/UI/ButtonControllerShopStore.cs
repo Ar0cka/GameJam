@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ButtonControllerShopStore : MonoBehaviour
 { 
@@ -18,6 +19,14 @@ public class ButtonControllerShopStore : MonoBehaviour
     [SerializeField] private UIViewManager _viewer;
 
     private UIViewManager viewManager;
+
+    private IBuildableState _buildableState;
+
+    [Inject]
+    public ButtonControllerShopStore(IBuildableState buildableState)
+    {
+        _buildableState = buildableState;
+    }
 
     private void Start()
     {
@@ -40,11 +49,11 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     private void OnClick()
     {
-        if (BuildableState.Instance != null)
+        if (_buildableState != null)
         {
-            BuildableState.Instance.SetBuilded();
+            _buildableState.SetBuilded();
         }
-        if (BuildableState.Instance != null && BuildableState.Instance.IsBuildable)
+        if (_buildableState != null && _buildableState.IsBuildable)
         {
             mainPlayer.Build(shop._isCostBuild);
             shop.UpdateIncome();
@@ -55,7 +64,7 @@ public class ButtonControllerShopStore : MonoBehaviour
                 contract.StartDisplay();
             }
 
-            _viewer.IncomeView(shop.Income);
+            _viewer.IncomeView(shop.InitialIncome);
             _viewer.CostView(shop.UpdateCost);
 
             Purchase();
