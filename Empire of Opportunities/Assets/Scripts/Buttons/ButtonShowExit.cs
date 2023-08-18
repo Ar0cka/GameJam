@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ButtonShowExit : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ButtonShowExit : MonoBehaviour
 
     [SerializeField] private GameObject _panelUpgrade;
 
+    [Inject] private IButtonManager _buttonManager;
     private void Start()
     {
         _buttonExit.onClick.AddListener(OnClick);
@@ -18,11 +20,11 @@ public class ButtonShowExit : MonoBehaviour
 
     private void OnClick()
     {
-        if (ButtonManager.Instance != null && ButtonManager.Instance.invisible)
+        if (_buttonManager != null && _buttonManager.invisible)
         {
-            ButtonManager.Instance.SetDeactivateButton();
+            _buttonManager.SetDeactivateButton();
         }
-        if (ButtonManager.Instance.invisible == false)
+        if (_buttonManager.invisible == false)
         {
             ExitWindow();
             _buttonEnter.interactable = true;

@@ -13,6 +13,8 @@ public class UIViewManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _levelView;
 
+    [SerializeField] private TextMeshProUGUI _personal;
+
     public void MoneyView(int amount)
     {
         _moneyView.text = "Money: " + amount;
@@ -31,5 +33,11 @@ public class UIViewManager : MonoBehaviour
     public void LevelView(int amount)
     {
         _levelView.text = "Level: " + amount;
+    }
+
+    public void Personal(string name, int income ,int level, int upgradeCost)
+    {
+        _personal.text ="Name: " + name + ". \nIncome: " + income + "." +
+            " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
     }
 }

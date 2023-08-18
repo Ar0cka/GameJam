@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Zenject;
 
 public class ButtonShowWindowUpgrade : MonoBehaviour
 {
     [SerializeField] private Button showUpgradeWindow;
     [SerializeField] private GameObject panelUpgrade;
 
+    [Inject] private IButtonManager _buttonManager;
     void Start()
     {
         showUpgradeWindow.onClick.AddListener(OnClick);
@@ -16,16 +17,16 @@ public class ButtonShowWindowUpgrade : MonoBehaviour
     }
     private void OnClick()
     {
-        if (ButtonManager.Instance != null)
+        if (_buttonManager != null)
         {
-            ButtonManager.Instance.SetActiveButton();
+            _buttonManager.SetActiveButton();
         }
-        if (ButtonManager.Instance != null && ButtonManager.Instance.invisible)
+        if (_buttonManager != null && _buttonManager.invisible)
         {
             PanelShow();
             showUpgradeWindow.interactable = false;
         }  
-        else if (ButtonManager.Instance != null && !ButtonManager.Instance.invisible == false)
+        else if (_buttonManager != null && !_buttonManager.invisible == false)
         {
             showUpgradeWindow.interactable = true;
         }

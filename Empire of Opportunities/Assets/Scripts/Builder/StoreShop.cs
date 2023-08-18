@@ -14,8 +14,6 @@ public class StoreShop : Builder
 
     void Start()
     {
-       
-        Debug.Log("Start completed");
         costBuilding = 200;
         _locationMultiplayer = 1.5f;
         InvokeRepeating("UpdateIncome", 0f, 2f);   

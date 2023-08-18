@@ -24,14 +24,11 @@ public class ButtonControllerShopStore : MonoBehaviour
     private void InjectDependencies(IBuildableState buildableState)
     {
         _buildableState = buildableState;
-        Debug.Log("Dependencies injected");
     }
 
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(1f);
-
-        Debug.Log("Start completed");
 
         buyButton.onClick.AddListener(OnClick);
 
