@@ -10,16 +10,12 @@ public class StoreShop : Builder
 
     public int _isCostBuild => costBuilding;
 
-    private IBuildableState _buildableState;
-
-    [Inject]
-    public StoreShop(IBuildableState buildableState)
-    {
-        _buildableState = buildableState;
-    }
+    [Inject] private IBuildableState _buildableState;
 
     void Start()
     {
+       
+        Debug.Log("Start completed");
         costBuilding = 200;
         _locationMultiplayer = 1.5f;
         InvokeRepeating("UpdateIncome", 0f, 2f);   

@@ -7,6 +7,7 @@ public class GameInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.Bind<IBuildableState>().To<BuildableState>().AsSingle();
+        Debug.Log("Complet Zenject");
+        Container.Bind<IBuildableState>().To<BuildableState>().FromNewComponentOnNewGameObject().AsSingle();
     }
 }

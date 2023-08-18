@@ -18,18 +18,21 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     [SerializeField] private UIViewManager _viewer;
 
-    private UIViewManager viewManager;
-
     private IBuildableState _buildableState;
 
     [Inject]
-    public ButtonControllerShopStore(IBuildableState buildableState)
+    private void InjectDependencies(IBuildableState buildableState)
     {
         _buildableState = buildableState;
+        Debug.Log("Dependencies injected");
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Start completed");
+
         buyButton.onClick.AddListener(OnClick);
 
         buyButton.gameObject.SetActive(false);
