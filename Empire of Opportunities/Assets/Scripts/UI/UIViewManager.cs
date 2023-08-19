@@ -15,6 +15,8 @@ public class UIViewManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _personal;
 
+    [SerializeField] private TextMeshProUGUI _managerPersonal;
+
     public void MoneyView(int amount)
     {
         _moneyView.text = "Money: " + amount;
@@ -38,6 +40,12 @@ public class UIViewManager : MonoBehaviour
     public void Personal(string name, int income ,int level, int upgradeCost)
     {
         _personal.text ="Name: " + name + ". \nIncome: " + income + "." +
+            " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
+    }
+
+    public void ManagerPersonal(string name, int income, int level, int upgradeCost)
+    {
+        _managerPersonal.text = "Name: " + name + ". \nIncome: " + income + "." +
             " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
     }
 }
