@@ -8,4 +8,6 @@ public interface IBasePersonal
 
     int BaseIncome { get; }
 
+    void UpdateBaseIncome(int amount);
+
 }

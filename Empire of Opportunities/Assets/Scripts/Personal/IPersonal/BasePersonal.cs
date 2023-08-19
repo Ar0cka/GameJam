@@ -16,4 +16,9 @@ public class BasePersonal : MonoBehaviour, IBasePersonal
         _name = name;
         _baseIncome = baseIncome;
     }
+
+    public void UpdateBaseIncome(int amount)
+    {
+        _baseIncome += amount;
+    }
 }
