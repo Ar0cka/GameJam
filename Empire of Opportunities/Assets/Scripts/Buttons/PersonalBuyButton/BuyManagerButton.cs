@@ -20,9 +20,13 @@ public class BuyManagerButton : MonoBehaviour
 
     private float checkInterval = 1.5f;
     private float lastCheck;
-    private void Start()
+
+    private void Awake()
     {
         _buyManagerButton.onClick.AddListener(OnClick);
+    }
+    private void Start()
+    {
         CheckUpdateCost();
         lastCheck = Time.time;
     }
@@ -37,18 +41,24 @@ public class BuyManagerButton : MonoBehaviour
     }
     private void OnClick()
     {
-        if (_mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable)
+        if (CanUpgrade())
         {
-            _buttonBuyText.text = "Upgrade";
-
             _mainPlayer.UpdateCapital(_personalManagerService.upgradeCost);
 
             UpgradePersonalCost();
 
-            _manager.UpgradeTexManager();
+            _manager.UpdateManagerUI();
+
+            if (_personalManagerService.level > 0)
+            {
+                _buttonBuyText.text = "Upgrade";
+            }
         }
     }
-
+    private bool CanUpgrade()
+    {
+        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable;
+    }
     private void UpgradePersonalCost()
     {
         _manager.UpdateCost();
@@ -56,13 +66,6 @@ public class BuyManagerButton : MonoBehaviour
 
     private void CheckUpdateCost()
     {
-        if (_mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable)
-        {
-            _buyManagerButton.interactable = true;
-        }
-        else
-        {
-            _buyManagerButton.interactable = false;
-        }
+        _buyManagerButton.interactable = CanUpgrade();
     }
 }

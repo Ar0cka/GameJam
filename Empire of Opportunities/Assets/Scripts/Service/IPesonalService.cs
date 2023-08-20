@@ -6,5 +6,7 @@ public interface IPesonalService
 {
     int upgradeCost { get; }
 
-    void UpgradeCostPersonal(int amount);
+    int level { get; }
+
+    void UpgradeCostPersonal(int upgradeCost, int level );
 }

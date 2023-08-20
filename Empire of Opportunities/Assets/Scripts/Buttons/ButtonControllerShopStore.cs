@@ -19,7 +19,6 @@ public class ButtonControllerShopStore : MonoBehaviour
     [SerializeField] private UIViewManager _viewer;
 
     private IBuildableState _buildableState;
-
     [Inject]
     private void InjectDependencies(IBuildableState buildableState)
     {

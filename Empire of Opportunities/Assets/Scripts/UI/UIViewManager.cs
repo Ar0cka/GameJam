@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIViewManager : MonoBehaviour
 {
@@ -12,10 +13,6 @@ public class UIViewManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _incomeView;
 
     [SerializeField] private TextMeshProUGUI _levelView;
-
-    [SerializeField] private TextMeshProUGUI _personal;
-
-    [SerializeField] private TextMeshProUGUI _managerPersonal;
 
     public void MoneyView(int amount)
     {
@@ -37,15 +34,9 @@ public class UIViewManager : MonoBehaviour
         _levelView.text = "Level: " + amount;
     }
 
-    public void Personal(string name, int income ,int level, int upgradeCost)
+    public void SetPersonalText(string name, int income ,int level, int upgradeCost, TextMeshProUGUI text)
     {
-        _personal.text ="Name: " + name + ". \nIncome: " + income + "." +
-            " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
-    }
-
-    public void ManagerPersonal(string name, int income, int level, int upgradeCost)
-    {
-        _managerPersonal.text = "Name: " + name + ". \nIncome: " + income + "." +
+        text.text ="Name: " + name + ". \nIncome: " + income + "." +
             " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
     }
 }

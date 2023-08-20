@@ -5174,8 +5174,6 @@ MonoBehaviour:
   _costView: {fileID: 262111721}
   _incomeView: {fileID: 351305594}
   _levelView: {fileID: 2118420874}
-  _personal: {fileID: 43063203}
-  _managerPersonal: {fileID: 1926435977}
 --- !u!4 &1285115443
 Transform:
   m_ObjectHideFlags: 0
@@ -5320,8 +5318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewManager: {fileID: 1285115442}
+  _descriptionManager: {fileID: 1926435977}
   _mainPlayer: {fileID: 821411869}
-  upgradeCost: 0
 --- !u!1 &1470746216
 GameObject:
   m_ObjectHideFlags: 0
@@ -6799,8 +6797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewer: {fileID: 1285115442}
+  _descriptionSalesman: {fileID: 43063203}
   _mainPlayer: {fileID: 821411869}
-  upgradeCost: 0
 --- !u!4 &2108432802
 Transform:
   m_ObjectHideFlags: 0

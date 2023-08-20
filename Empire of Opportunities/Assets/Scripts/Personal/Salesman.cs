@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class Salesman : MonoBehaviour
 {
     [SerializeField] private UIViewManager _viewer;
+
+    [SerializeField] private TextMeshProUGUI _descriptionSalesman;
 
     [SerializeField] private MainPlayer _mainPlayer;
 
@@ -32,14 +35,14 @@ public class Salesman : MonoBehaviour
 
     public void UpgradeTextSalesMan()
     {
-        _viewer.Personal(_basePersonal.Name, _basePersonal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
+        _viewer.SetPersonalText(_basePersonal.Name, _basePersonal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal, _descriptionSalesman);
     }
 
     public void UpgradeCost()
     {
         _upgradePersonal.UpdateCostUpgradePersonal();
 
-        _personalSalesmanService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal);
+        _personalSalesmanService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal);
 
         _basePersonal.UpdateBaseIncome(upgradeIncomePersonal);
     }
