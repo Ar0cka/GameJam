@@ -7,7 +7,7 @@ using Zenject;
 
 public class BuyManagerButton : MonoBehaviour
 {
-    [SerializeField] private Button _buyPersonalButton;
+    [SerializeField] private Button _buyManagerButton;
 
     [SerializeField] private TextMeshProUGUI _buttonBuyText;
 
@@ -16,13 +16,13 @@ public class BuyManagerButton : MonoBehaviour
     [SerializeField] private Manager _manager;
 
     [Inject] private IBuildableState buildableState;
-    [Inject] private IPesonalService _personalService;
+    [Inject] private IPesonalService _personalManagerService;
 
     private float checkInterval = 1.5f;
     private float lastCheck;
     private void Start()
     {
-        _buyPersonalButton.onClick.AddListener(OnClick);
+        _buyManagerButton.onClick.AddListener(OnClick);
         CheckUpdateCost();
         lastCheck = Time.time;
     }
@@ -37,15 +37,15 @@ public class BuyManagerButton : MonoBehaviour
     }
     private void OnClick()
     {
-        if (_mainPlayer.currentCapital >= _personalService.upgradeCost && buildableState.IsBuildable)
+        if (_mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable)
         {
             _buttonBuyText.text = "Upgrade";
 
-            _mainPlayer.UpdateCapital(_personalService.upgradeCost);
+            _mainPlayer.UpdateCapital(_personalManagerService.upgradeCost);
 
             UpgradePersonalCost();
 
-            _manager.UpgradeTextMeshPro();
+            _manager.UpgradeTexManager();
         }
     }
 
@@ -56,13 +56,13 @@ public class BuyManagerButton : MonoBehaviour
 
     private void CheckUpdateCost()
     {
-        if (_mainPlayer.currentCapital >= _personalService.upgradeCost && buildableState.IsBuildable)
+        if (_mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable)
         {
-            _buyPersonalButton.interactable = true;
+            _buyManagerButton.interactable = true;
         }
         else
         {
-            _buyPersonalButton.interactable = false;
+            _buyManagerButton.interactable = false;
         }
     }
 }

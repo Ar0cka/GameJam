@@ -26,9 +26,9 @@ public class Manager : MonoBehaviour
 
         _viewManager.ManagerPersonal(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
     }
-    public void UpgradeTextMeshPro()
+    public void UpgradeTexManager()
     {
-        _viewManager.Personal(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
+        _viewManager.ManagerPersonal(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
     }
     public void UpdateCost()
     {
