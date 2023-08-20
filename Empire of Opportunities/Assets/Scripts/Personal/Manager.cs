@@ -7,13 +7,14 @@ public class Manager : MonoBehaviour
 {
     [Inject] IFactoryPersonal _factoryPersonal;
     [Inject] IBuildableState _buildableState;
-    [Inject] IPesonalService _personalService;
 
     [SerializeField] UIViewManager _viewManager;
     [SerializeField] MainPlayer _mainPlayer;
 
     IBasePersonal _personal;
     IUpgradePersonal _upgradePersonal;
+
+    public int upgradeCost;
 
     private int upgradeIncomeManager = 4;
     private void Start()
@@ -22,19 +23,21 @@ public class Manager : MonoBehaviour
 
         _upgradePersonal = _factoryPersonal.CreateUpgradePersonal(0, 100);
 
+        upgradeCost = _upgradePersonal.UpgradeCostPersonal;
+
         InvokeRepeating("AddToCapitalIncomeManager", 0, 2);
 
         _viewManager.ManagerPersonal(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
     }
-    public void UpgradeTextMeshPro()
+    public void UpgradeTexManager()
     {
-        _viewManager.Personal(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
+        _viewManager.ManagerPersonal(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
     }
     public void UpdateCost()
     {
             _upgradePersonal.UpdateCostUpgradePersonal();
 
-            _personalService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal);
+            upgradeCost = _upgradePersonal.UpgradeCostPersonal;
 
             _personal.UpdateBaseIncome(upgradeIncomeManager); 
     }

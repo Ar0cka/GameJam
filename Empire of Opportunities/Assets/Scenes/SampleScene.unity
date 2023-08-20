@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 20193707}
   - component: {fileID: 20193706}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ButtonManagerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2953,6 +2953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewManager: {fileID: 1285115442}
   _mainPlayer: {fileID: 821411869}
+  upgradeCost: 0
 --- !u!1 &1470746216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,9 +3867,9 @@ GameObject:
   - component: {fileID: 1822600991}
   - component: {fileID: 1822600990}
   - component: {fileID: 1822600989}
-  - component: {fileID: 1822600988}
+  - component: {fileID: 1822600992}
   m_Layer: 5
-  m_Name: BuyPersonalButton
+  m_Name: BuyManagerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3895,22 +3896,6 @@ RectTransform:
   m_AnchoredPosition: {x: 21, y: 13}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1822600988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822600986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d6a637be1890849abaf95761232dcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buyPersonalButton: {fileID: 1822600989}
-  _buttonBuyText: {fileID: 20193706}
-  _mainPlayer: {fileID: 821411869}
-  _salesman: {fileID: 2108432801}
 --- !u!114 &1822600989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3993,6 +3978,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822600986}
   m_CullTransparentMesh: 1
+--- !u!114 &1822600992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822600986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72e6e04afe55c542999e107422f3b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buyManagerButton: {fileID: 1822600989}
+  _buttonBuyText: {fileID: 20193706}
+  _mainPlayer: {fileID: 821411869}
+  _manager: {fileID: 1421807682}
 --- !u!1 &1903725440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,6 +4432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewer: {fileID: 1285115442}
   _mainPlayer: {fileID: 821411869}
+  upgradeCost: 0
 --- !u!4 &2108432802
 Transform:
   m_ObjectHideFlags: 0

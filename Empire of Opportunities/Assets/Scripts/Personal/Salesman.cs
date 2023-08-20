@@ -12,7 +12,8 @@ public class Salesman : MonoBehaviour
 
     [Inject] private IFactoryPersonal _factoryPersonal;
     [Inject] private IBuildableState _buildableState;
-    [Inject] private IPesonalService _personalService;
+
+    public int upgradeCost;
 
     private IBasePersonal _basePersonal;
     private IUpgradePersonal _upgradePersonal;
@@ -23,14 +24,14 @@ public class Salesman : MonoBehaviour
         _basePersonal = _factoryPersonal.CreateBasePersonal("Salesman", 1);
         _upgradePersonal = _factoryPersonal.CreateUpgradePersonal(0, 50);
 
-        _personalService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal);
+        upgradeCost = _upgradePersonal.UpgradeCostPersonal;
 
         InvokeRepeating("AddToCapitalMainPlayer", 0, 2f);
 
-        UpgradeTextMeshPro();
+        UpgradeTextSalesMan();
     }
 
-    public void UpgradeTextMeshPro()
+    public void UpgradeTextSalesMan()
     {
         _viewer.Personal(_basePersonal.Name, _basePersonal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal);
     }
@@ -39,7 +40,7 @@ public class Salesman : MonoBehaviour
     {
         _upgradePersonal.UpdateCostUpgradePersonal();
 
-        _personalService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal);
+        upgradeCost = _upgradePersonal.UpgradeCostPersonal;
 
         _basePersonal.UpdateBaseIncome(upgradeIncomePersonal);
     }
