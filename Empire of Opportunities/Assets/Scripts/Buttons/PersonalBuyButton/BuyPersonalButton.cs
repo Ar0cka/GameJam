@@ -18,6 +18,7 @@ public class BuyPersonalButton : MonoBehaviour
     [SerializeField] private Salesman _salesman;
 
     [Inject] private IBuildableState buildableState;
+    [Inject] private IPesonalService _personalSalesmanService;
 
     private float checkInterval = 1.5f;
     private float lastCheck;
@@ -38,11 +39,11 @@ public class BuyPersonalButton : MonoBehaviour
     }
     private void OnClick() 
     {
-        if (_mainPlayer.currentCapital >= _salesman.upgradeCost && buildableState.IsBuildable)
+        if (_mainPlayer.currentCapital >= _personalSalesmanService.upgradeCost && buildableState.IsBuildable)
         {
             _buttonBuyText.text = "Upgrade";
 
-            _mainPlayer.UpdateCapital(_salesman.upgradeCost);
+            _mainPlayer.UpdateCapital(_personalSalesmanService.upgradeCost);
 
             UpgradePersonalCost();
 
@@ -57,7 +58,7 @@ public class BuyPersonalButton : MonoBehaviour
 
     private void CheckUpdateCost()
     {
-        if (_mainPlayer.currentCapital >= _salesman.upgradeCost && buildableState.IsBuildable)
+        if (_mainPlayer.currentCapital >= _personalSalesmanService.upgradeCost && buildableState.IsBuildable)
         {
             _buyPersonalButton.interactable = true;
         }
