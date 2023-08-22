@@ -3771,8 +3771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcc7fd8757a09549948ad3c8f557134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showUpgradeWindow: {fileID: 292405842}
-  panelUpgrade: {fileID: 1254314769}
+  panelUpgradeBuild: {fileID: 1254314769}
+  panelUpgradePersonal: {fileID: 695129480}
+  openUpgradeButton: {fileID: 292405842}
 --- !u!114 &292405846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4358,7 +4359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &695129481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4850,6 +4851,7 @@ GameObject:
   - component: {fileID: 952926882}
   - component: {fileID: 952926884}
   - component: {fileID: 952926885}
+  - component: {fileID: 952926886}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -4889,6 +4891,7 @@ MonoBehaviour:
   - {fileID: 952926882}
   - {fileID: 952926884}
   - {fileID: 952926885}
+  - {fileID: 952926886}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -4979,6 +4982,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e08282f6245cc24799d90e88f970b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &952926886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952926876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d564bf139ba364643bd2d67f01baea2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &999439167
@@ -5355,7 +5370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1254314770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7122,11 +7137,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2003553974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bcc7fd8757a09549948ad3c8f557134, type: 3}
+  m_Script: {fileID: 11500000, guid: d27b410960f8a4e42aa66a6265aafdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showUpgradeWindow: {fileID: 2003553976}
-  panelUpgrade: {fileID: 695129480}
+  panelUpgradeBuild: {fileID: 1254314769}
+  panelUpgradePersonal: {fileID: 695129480}
+  openUpgradeButton: {fileID: 2003553976}
 --- !u!1 &2108432800
 GameObject:
   m_ObjectHideFlags: 0
