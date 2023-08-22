@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IButtonManager
 {
-    bool invisible { get; }
-    void SetActiveButton();
+  bool invisible { get; }
 
+    void SetActiveButton();
     void SetDeactivateButton();
 }
