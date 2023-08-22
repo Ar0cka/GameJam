@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1564361556429396839
+--- !u!1 &3833030164116529626
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1564361556429396123}
-  - component: {fileID: 1564361556429396836}
-  - component: {fileID: 1564361556429396837}
-  - component: {fileID: 7757266288895628122}
-  - component: {fileID: 1564361556429396838}
+  - component: {fileID: 3833030164116529702}
+  - component: {fileID: 3833030164116529625}
+  - component: {fileID: 3833030164116529624}
+  - component: {fileID: 3833030164116529627}
   m_Layer: 0
   m_Name: PlaceForBuild
   m_TagString: Untagged
@@ -20,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1564361556429396123
+--- !u!4 &3833030164116529702
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564361556429396839}
+  m_GameObject: {fileID: 3833030164116529626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.024, y: -0.498, z: 0}
   m_LocalScale: {x: 0.97021234, y: 1.021227, z: 1.0389937}
@@ -35,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1564361556429396836
+--- !u!212 &3833030164116529625
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564361556429396839}
+  m_GameObject: {fileID: 3833030164116529626}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,39 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1564361556429396837
+--- !u!114 &3833030164116529624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564361556429396839}
+  m_GameObject: {fileID: 3833030164116529626}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75f102504c2df04e885afdb002fd903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _buyButton: {fileID: 0}
---- !u!114 &7757266288895628122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564361556429396839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10ec59a323e59548a09f058d922e8fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _newSprite: {fileID: 21300000, guid: f1b137b50a8ed8b4d9a26091105c17d1, type: 3}
---- !u!60 &1564361556429396838
+--- !u!60 &3833030164116529627
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564361556429396839}
+  m_GameObject: {fileID: 3833030164116529626}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class Contract : MonoBehaviour
 {
-    private float disableTimer = 3f;
+    private float disableTimer = 2f;
     public void StartDisplay()
     {
         StartCoroutine(DisplayContractAndHide());

@@ -28,18 +28,6 @@ public class ButtonControllerShopStore : MonoBehaviour
         buyButton.gameObject.SetActive(false);
     }
 
-    private void OnMouseEnter()
-    {
-        if(buyButton != null)   
-        buyButton.gameObject.SetActive(true);
-    }
-
-    private void OnMouseExit()
-    {
-        if(buyButton != null)
-        buyButton?.gameObject.SetActive(false);
-    }
-
     private void OnClick()
     {
         if (_buildableState != null)
@@ -68,7 +56,11 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     private void Purchase()
     {
-        Destroy(buyButton.gameObject);
+        buyButton.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
         buyButton.onClick.RemoveListener(OnClick);
     }
 }
