@@ -18,17 +18,11 @@ public class ButtonControllerShopStore : MonoBehaviour
 
     [SerializeField] private UIViewManager _viewer;
 
-    private IBuildableState _buildableState;
-    [Inject]
-    private void InjectDependencies(IBuildableState buildableState)
-    {
-        _buildableState = buildableState;
-    }
+    [Inject] private IBuildableState _buildableState;
+    [Inject] private IBuilderService _builderService;
 
-    private IEnumerator Start()
+    private void Start()
     {
-        yield return new WaitForSeconds(1f);
-
         buyButton.onClick.AddListener(OnClick);
 
         buyButton.gameObject.SetActive(false);
@@ -52,10 +46,9 @@ public class ButtonControllerShopStore : MonoBehaviour
         {
             _buildableState.SetBuilded();
         }
-        if (_buildableState != null && _buildableState.IsBuildable)
+        if (CanUpgrade())
         {
-            mainPlayer.Build(shop._isCostBuild);
-            shop.UpdateIncome();
+            mainPlayer.Build(_builderService.costBuilding);
 
             if (contract != null)
             {
@@ -63,15 +56,19 @@ public class ButtonControllerShopStore : MonoBehaviour
                 contract.StartDisplay();
             }
 
-            _viewer.IncomeView(shop.InitialIncome);
-            _viewer.CostView(shop.UpdateCost);
+            shop.ChangeUIBuilder();
 
             Purchase();
         } 
+    }
+    private bool CanUpgrade()
+    {
+        return _buildableState != null && _buildableState.IsBuildable;
     }
 
     private void Purchase()
     {
         Destroy(buyButton.gameObject);
+        buyButton.onClick.RemoveListener(OnClick);
     }
 }

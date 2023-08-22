@@ -4,46 +4,60 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class StoreShop : Builder
+public class StoreShop : MonoBehaviour
 {
     [SerializeField] private UIViewManager _viewer;
-
-    public int _isCostBuild => costBuilding;
-
+    [SerializeField] private MainPlayer _player;
+    [SerializeField] private TextMeshProUGUI _informationBuild;
+    
     [Inject] private IBuildableState _buildableState;
+    [Inject] private IFactoryBuild _factoryBuild;
+    [Inject]private IBuilderService _builderService;
 
+    private IBuilderBase _builder;
+    private IUpgradeBuild _upgradeBuild;
+   
+    
     void Start()
     {
-        costBuilding = 200;
-        _locationMultiplayer = 1.5f;
-        InvokeRepeating("UpdateIncome", 0f, 2f);   
+        _builder = _factoryBuild.CreateBuilderBase("Shop", 2, 300);
+        _upgradeBuild = _factoryBuild.CreateUpgradeBuild(200, 0, 2);
+        _builderService.SetUpdateCost(_builder.costBuilding, _upgradeBuild.upgradeCost, _upgradeBuild.modificatoryUpgradeCost);
+        ChangeUIBuilder();
+
+        InvokeRepeating("TransferringPlayerData", 0f, 2f);   
     }
-    public override void UpdateLevel()
+    public void upgradeCost()
     {
-        if (_buildableState != null && _buildableState.IsBuildable) 
+        if (CanUpgrade()) 
         {
-            base.UpdateLevel();
+            _builderService.SetUpdateCost(_builder.costBuilding, _upgradeBuild.upgradeCost, _upgradeBuild.modificatoryUpgradeCost);
+            _upgradeBuild.UpgradeLevelBuild();
+            _builder.UpdateBaseIncome();
         } 
     }
-    public void UpdateIncome()
+
+    private bool CanUpgrade()
     {
-      if (_buildableState != null && _buildableState.IsBuildable)
-        {
-            TransferringPlayerData();
-        }
+        return _buildableState!=null && _buildableState.IsBuildable;
     }
     private void TransferringPlayerData()
     { 
-        MainPlayer player = FindAnyObjectByType<MainPlayer>();
-
-        player.AddToTotalCapital(initialIncome);
-
-    }
-    private void Update()
-    {
-        if (_buildableState != null && _buildableState.IsBuildable)
+        if (CanUpgrade()) 
         {
-            _viewer.LevelView(Level);
+            _player.AddToTotalCapital(_builder.baseIncomeBuild);
         }
+    }
+    public void ChangeUIBuilder()
+    {
+        if (CanUpgrade())
+        {
+            _viewer.BuildView(_builder.name, _builder.baseIncomeBuild, _upgradeBuild.level, _upgradeBuild.upgradeCost, _informationBuild);
+        }
+        else
+        {
+            _viewer.BuildView(_builder.name, _builder.baseIncomeBuild, _builder.costBuilding, _upgradeBuild.level, _upgradeBuild.upgradeCost, _informationBuild);
+        }
+        
     }
 }

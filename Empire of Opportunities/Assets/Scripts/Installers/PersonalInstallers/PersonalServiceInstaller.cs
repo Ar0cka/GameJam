@@ -8,6 +8,6 @@ public class PersonalServiceInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.Bind<IPesonalService>().To<PersonalService>().AsSingle();
+        Container.Bind<IPesonalService>().To<PersonalService>().AsTransient();
     }
 }

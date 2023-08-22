@@ -28,6 +28,21 @@ public class BuyPersonalButton : MonoBehaviour
         _buyPersonalButton.onClick.AddListener(OnClick);
     }
 
+    private void OnEnable()
+    {
+        _salesman.OnSalesmanServiceChange += HandheldPersonalServiceChange;
+    }
+
+    private void OnDestroy()
+    {
+        _salesman.OnSalesmanServiceChange -= HandheldPersonalServiceChange;
+    }
+
+    private void HandheldPersonalServiceChange(IPesonalService newPersonalService)
+    {
+        _personalSalesmanService = newPersonalService;
+    }
+
     private void Start()
     {
         CheckUpdateCost();
@@ -47,9 +62,7 @@ public class BuyPersonalButton : MonoBehaviour
         if(CanUpgrade())
         {
             _mainPlayer.UpdateCapital(_personalSalesmanService.upgradeCost);
-
-            UpgradePersonalCost();
-
+            _salesman.UpgradeCost();
             _salesman.UpgradeTextSalesMan();
 
             if (_personalSalesmanService.level > 0)
@@ -67,11 +80,6 @@ public class BuyPersonalButton : MonoBehaviour
     private bool CanUpgrade()
     {
         return _mainPlayer.currentCapital >= _personalSalesmanService.upgradeCost && buildableState.IsBuildable;
-    }
-
-    private void UpgradePersonalCost()
-    {
-        _salesman.UpgradeCost();
     }
 
     private void CheckUpdateCost()

@@ -15,6 +15,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
     [SerializeField] private UIViewManager _viewer;
 
     [Inject] private IBuildableState _buildableState;
+    [Inject] private IBuilderService _builderService;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void Update()
     {
-        if (_deduct.currentCapital >= _shop.UpdateCost && _buildableState.IsBuildable) 
+        if (_deduct.currentCapital >= _builderService.upgradeCost && _buildableState.IsBuildable) 
         {
             _upgradeLevel.interactable = true;
         }
@@ -38,13 +39,12 @@ public class ButtonUpgradeLevel : MonoBehaviour
     {
         if (_buildableState != null && _buildableState.IsBuildable)
         {
-            if (_deduct.currentCapital >= _shop.UpdateCost)
+            if (_deduct.currentCapital >= _builderService.upgradeCost)
             {
-                _deduct.UpdateCapital(_shop.UpdateCost);
-                _shop.UpdateLevel();
+                _deduct.UpdateCapital(_builderService.upgradeCost);
+                _shop.upgradeCost();
             }
-            _viewer.CostView(_shop.UpdateCost);
-            _viewer.IncomeView(_shop.InitialIncome);
+            _shop.ChangeUIBuilder();
         }
     }
 }

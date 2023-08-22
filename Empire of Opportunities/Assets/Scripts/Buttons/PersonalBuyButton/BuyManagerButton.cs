@@ -30,6 +30,19 @@ public class BuyManagerButton : MonoBehaviour
         CheckUpdateCost();
         lastCheck = Time.time;
     }
+    private void OnEnable()
+    {
+        _manager.OnPersonalServiceChange += HandheldPersonalServiceChange;
+    }
+    private void OnDestroy()
+    {
+        _manager.OnPersonalServiceChange -= HandheldPersonalServiceChange;
+    }
+
+    private void HandheldPersonalServiceChange(IPesonalService newPersonalService)
+    {
+        _personalManagerService = newPersonalService;
+    }
 
     private void Update()
     {
@@ -44,9 +57,7 @@ public class BuyManagerButton : MonoBehaviour
         if (CanUpgrade())
         {
             _mainPlayer.UpdateCapital(_personalManagerService.upgradeCost);
-
-            UpgradePersonalCost();
-
+            _manager.UpdateCost();
             _manager.UpdateManagerUI();
 
             if (_personalManagerService.level > 0)
@@ -57,11 +68,7 @@ public class BuyManagerButton : MonoBehaviour
     }
     private bool CanUpgrade()
     {
-        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable;
-    }
-    private void UpgradePersonalCost()
-    {
-        _manager.UpdateCost();
+        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable && _personalManagerService.upgradeCost>0;
     }
 
     private void CheckUpdateCost()

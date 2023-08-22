@@ -8,35 +8,23 @@ public class UIViewManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _moneyView;
 
-    [SerializeField] private TextMeshProUGUI _costView;
-
-    [SerializeField] private TextMeshProUGUI _incomeView;
-
-    [SerializeField] private TextMeshProUGUI _levelView;
-
     public void MoneyView(int amount)
     {
         _moneyView.text = "Money: " + amount;
     }
 
-    public void CostView(int amount)
+    public void BuildView(string name, int baseIncome, int costBuilding, int level, int upgradeCost, TextMeshProUGUI builderText)
     {
-        _costView.text = "Cost: " + amount;
+        builderText.text = "Name: " + name + ". \nIncome: " + baseIncome + ". \nCost building: " + costBuilding + ". \nLevel: " + level + ". \nUpgrade cost " + upgradeCost;
+    }
+    public void BuildView(string name, int baseIncome, int level, int upgradeCost, TextMeshProUGUI builderText)
+    {
+        builderText.text = "Name: " + name + ". \nIncome: " + baseIncome + ". \nLevel: " + level + ". \nUpgrade cost " + upgradeCost;
     }
 
-    public void IncomeView(int amount)
+    public void SetPersonalText(string name, int income ,int level, int upgradeCost, TextMeshProUGUI Personaltext)
     {
-        _incomeView.text = "Income: " + amount;
-    }
-
-    public void LevelView(int amount)
-    {
-        _levelView.text = "Level: " + amount;
-    }
-
-    public void SetPersonalText(string name, int income ,int level, int upgradeCost, TextMeshProUGUI text)
-    {
-        text.text ="Name: " + name + ". \nIncome: " + income + "." +
+        Personaltext.text ="Name: " + name + ". \nIncome: " + income + "." +
             " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
     }
 }
