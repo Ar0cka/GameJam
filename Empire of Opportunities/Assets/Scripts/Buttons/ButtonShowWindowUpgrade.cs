@@ -6,6 +6,13 @@ using Zenject;
 
 public class ButtonShowWindowUpgrade : AbstractClassInButton
 {
+    private void Update()
+    {
+        if (CanClick()==false || panelUpgradeBuild.activeSelf == false)
+            openUpgradeButton.interactable = true;
+        else if(CanClick() || panelUpgradeBuild.activeSelf == true)
+            openUpgradeButton.interactable = false;
+    }
     protected override void OnClick()
     {
         if (buttonManager != null)
@@ -16,23 +23,15 @@ public class ButtonShowWindowUpgrade : AbstractClassInButton
         if (canClick)
         {
             PanelShow();
-            openUpgradeButton.interactable = false;
             CloseAllPanel();
-        }
-        else if (canClick == false)
-        {
-
-            openUpgradeButton.interactable = true;
         }
     }
     protected override void PanelShow()
     {
-        _windowState.Open();
-        panelUpgradeBuild.SetActive(_windowState.IsOpen);
+        panelUpgradeBuild.SetActive(true);
     }
     protected override void CloseAllPanel()
     {
-        _windowState.Close();
-        panelUpgradePersonal.SetActive(_windowState.IsOpen);
+        panelUpgradePersonal.SetActive(false);
     }
 }
