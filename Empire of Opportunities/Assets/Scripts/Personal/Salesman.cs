@@ -8,7 +8,6 @@ using Zenject;
 
 public class Salesman : MonoBehaviour
 {
-    public static Salesman Instance;
 
     [SerializeField] private UIViewManager _viewer;
 
@@ -26,14 +25,6 @@ public class Salesman : MonoBehaviour
     private IUpgradePersonal _upgradePersonal;
 
     private int upgradeIncomePersonal = 2;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
 
     private void Start()
     {
@@ -60,9 +51,6 @@ public class Salesman : MonoBehaviour
     public void UpgradeCost()
     {
         _upgradePersonal.UpdateCostUpgradePersonal();
-
-        _personalSalesmanService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal);
-
         _basePersonal.UpdateBaseIncome(upgradeIncomePersonal);
     }
 
@@ -74,7 +62,7 @@ public class Salesman : MonoBehaviour
         } 
     }
 
-    private void UpdatePersonalService()
+    public void UpdatePersonalService()
     {
         _personalSalesmanService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal) ;
         ChangePersonalService(_personalSalesmanService);

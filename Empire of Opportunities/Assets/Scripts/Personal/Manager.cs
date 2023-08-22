@@ -10,7 +10,7 @@ public class Manager : MonoBehaviour
 
     [Inject] IFactoryPersonal _factoryPersonal;
     [Inject] IBuildableState _buildableState;
-    [Inject] IPesonalService _personalService;
+    [Inject] IPesonalService _personalManagerService;
 
     [SerializeField] UIViewManager _viewManager;
     [SerializeField] TextMeshProUGUI _descriptionManager;
@@ -36,8 +36,8 @@ public class Manager : MonoBehaviour
     }
     private void ChangePersonalService(IPesonalService newPersonalService)
     {
-        _personalService = newPersonalService;
-        OnPersonalServiceChange?.Invoke(_personalService);
+        _personalManagerService = newPersonalService;
+        OnPersonalServiceChange?.Invoke(_personalManagerService);
     }
     public void UpdateManagerUI()
     {
@@ -46,7 +46,6 @@ public class Manager : MonoBehaviour
     public void UpdateCost()
     {
         _upgradePersonal.UpdateCostUpgradePersonal();
-        UpdateCostService();
         _personal.UpdateBaseIncome(upgradeIncomeManager); 
     }
 
@@ -57,11 +56,11 @@ public class Manager : MonoBehaviour
             _mainPlayer.AddToTotalCapital(_personal.BaseIncome);
         }
     }
-    private void UpdateCostService()
+    public void UpdateCostService()
     {
-        _personalService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal);
+        _personalManagerService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal);
 
-        ChangePersonalService(_personalService);
+        ChangePersonalService(_personalManagerService);
     }
     private void CreateCopyInterface()
     {

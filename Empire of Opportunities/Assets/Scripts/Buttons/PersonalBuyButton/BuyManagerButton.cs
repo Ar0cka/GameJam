@@ -27,8 +27,7 @@ public class BuyManagerButton : MonoBehaviour
     }
     private void Start()
     {
-        CheckUpdateCost();
-        lastCheck = Time.time;
+        _manager.UpdateCostService();
     }
     private void OnEnable()
     {
@@ -46,18 +45,15 @@ public class BuyManagerButton : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time - lastCheck > checkInterval)
-        {
-            CheckUpdateCost();
-            lastCheck = Time.time;
-        }
+        CheckUpdateCost();
     }
     private void OnClick()
     {
+        _manager.UpdateCost();
         if (CanUpgrade())
         {
             _mainPlayer.UpdateCapital(_personalManagerService.upgradeCost);
-            _manager.UpdateCost();
+            _manager.UpdateCostService();
             _manager.UpdateManagerUI();
 
             if (_personalManagerService.level > 0)
@@ -68,7 +64,7 @@ public class BuyManagerButton : MonoBehaviour
     }
     private bool CanUpgrade()
     {
-        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable && _personalManagerService.upgradeCost>0;
+        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable;
     }
 
     private void CheckUpdateCost()

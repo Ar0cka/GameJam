@@ -20,22 +20,26 @@ public class BuyPersonalButton : MonoBehaviour
     [Inject] private IBuildableState buildableState;
     [Inject] private IPesonalService _personalSalesmanService;
 
-    private float checkInterval = 1.5f;
-    private float lastCheck;
-
     private void Awake()
     {
         _buyPersonalButton.onClick.AddListener(OnClick);
     }
 
+    private void Start()
+    {
+        _salesman.UpdatePersonalService();
+    }
+
     private void OnEnable()
     {
         _salesman.OnSalesmanServiceChange += HandheldPersonalServiceChange;
+       
     }
 
     private void OnDestroy()
     {
         _salesman.OnSalesmanServiceChange -= HandheldPersonalServiceChange;
+   
     }
 
     private void HandheldPersonalServiceChange(IPesonalService newPersonalService)
@@ -43,27 +47,18 @@ public class BuyPersonalButton : MonoBehaviour
         _personalSalesmanService = newPersonalService;
     }
 
-    private void Start()
-    {
-        CheckUpdateCost();
-        lastCheck = Time.time;
-    }
-
     private void Update()
     {
-        if (Time.time - lastCheck > checkInterval)
-        {
-            CheckUpdateCost();
-            lastCheck = Time.time;
-        }
+        UpgradeUI();
     }
     private void OnClick() 
     {
-        if(CanUpgrade())
+        _salesman.UpgradeCost();
+        if (CanUpgrade())
         {
             _mainPlayer.UpdateCapital(_personalSalesmanService.upgradeCost);
-            _salesman.UpgradeCost();
             _salesman.UpgradeTextSalesMan();
+            _salesman.UpdatePersonalService();
 
             if (_personalSalesmanService.level > 0)
             {
@@ -73,17 +68,12 @@ public class BuyPersonalButton : MonoBehaviour
     }
 
     private void UpgradeUI()
-    { 
+    {
         _buyPersonalButton.interactable = CanUpgrade();
     }
 
     private bool CanUpgrade()
     {
         return _mainPlayer.currentCapital >= _personalSalesmanService.upgradeCost && buildableState.IsBuildable;
-    }
-
-    private void CheckUpdateCost()
-    {
-        UpgradeUI();
     }
 }
