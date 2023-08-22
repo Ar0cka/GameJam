@@ -75,3 +75,4 @@ Empire of Opportunities/UserSettings/Layouts/default-2021.dwlt
 Empire of Opportunities/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta
 Empire of Opportunities/Assets/Plugins/Zenject/OptionalExtras/Signals/Zenject-Signals.csproj.meta
 Empire of Opportunities/Assets/Plugins/Zenject/Source/Zenject.csproj.meta
+*.meta
