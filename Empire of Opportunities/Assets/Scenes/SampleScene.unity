@@ -4891,7 +4891,6 @@ MonoBehaviour:
   - {fileID: 952926882}
   - {fileID: 952926884}
   - {fileID: 952926885}
-  - {fileID: 952926886}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ButtonShowPersonalWindow : AbstractClassInButton
 {
+    private void Update()
+    {
+        if (CanClick() == false || panelUpgradePersonal.activeSelf == false)
+            openUpgradeButton.interactable = true;
+        else if (CanClick() || panelUpgradePersonal.activeSelf == true)
+            openUpgradeButton.interactable = false;
+    }
     protected override void OnClick()
     {
         if (buttonManager != null) { buttonManager.SetActiveButton(); }
@@ -12,22 +19,20 @@ public class ButtonShowPersonalWindow : AbstractClassInButton
         if (canClick)
         {
             PanelShow();
-            openUpgradeButton.interactable = true;
+            openUpgradeButton.interactable = false;
             CloseAllPanel();
         }
         else if (canClick == false)
         {
-            openUpgradeButton.interactable = false;
+            openUpgradeButton.interactable = true;
         }
     }
     protected override void PanelShow()
     {
-        _windowState.Open();
-        panelUpgradePersonal.SetActive(_windowState.IsOpen);
+        panelUpgradePersonal.SetActive(true);
     }
     protected override void CloseAllPanel()
     {
-        _windowState.Close();
-        panelUpgradeBuild.SetActive(_windowState.IsOpen);
+        panelUpgradeBuild.SetActive(false);
     }
 }

@@ -7,8 +7,6 @@ using Zenject;
 
 public abstract class AbstractClassInButton : MonoBehaviour
 {
-    [Inject] protected IWindowState _windowState;
-   
     [Inject] protected IButtonManager buttonManager;
   
 
@@ -21,7 +19,6 @@ public abstract class AbstractClassInButton : MonoBehaviour
 
     protected void Start()
     {
-        Debug.Log(_windowState);
         openUpgradeButton.onClick.AddListener(OnClick);
     }
 
