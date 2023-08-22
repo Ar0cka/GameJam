@@ -1,63 +1,64 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Zenject;
+using static UnityEditor.ObjectChangeEventStream;
 
-public class StoreShop : MonoBehaviour
+public class StoreShop : AbstractBuilder
 {
-    [SerializeField] private UIViewManager _viewer;
-    [SerializeField] private MainPlayer _player;
-    [SerializeField] private TextMeshProUGUI _informationBuild;
-    
-    [Inject] private IBuildableState _buildableState;
-    [Inject] private IFactoryBuild _factoryBuild;
-    [Inject]private IBuilderService _builderService;
-
-    private IBuilderBase _builder;
-    private IUpgradeBuild _upgradeBuild;
-   
-    
-    void Start()
+    protected override void Start()
     {
-        _builder = _factoryBuild.CreateBuilderBase("Shop", 2, 300);
-        _upgradeBuild = _factoryBuild.CreateUpgradeBuild(200, 0, 2);
-        _builderService.SetUpdateCost(_builder.costBuilding, _upgradeBuild.upgradeCost, _upgradeBuild.modificatoryUpgradeCost);
-        ChangeUIBuilder();
+        FactoryCreateBuild();
+        
+        InvokeRepeating("TransferringPlayerData", 0f, 2f);
 
-        InvokeRepeating("TransferringPlayerData", 0f, 2f);   
+        ChangeBuildService();
+
+        ChangeUIBuilder();
     }
     public void upgradeCost()
     {
-        if (CanUpgrade()) 
+        if (CanBuild()) 
         {
-            _builderService.SetUpdateCost(_builder.costBuilding, _upgradeBuild.upgradeCost, _upgradeBuild.modificatoryUpgradeCost);
-            _upgradeBuild.UpgradeLevelBuild();
-            _builder.UpdateBaseIncome();
+            UpdateBuildAndIncome();
         } 
     }
 
-    private bool CanUpgrade()
-    {
-        return _buildableState!=null && _buildableState.IsBuildable;
-    }
-    private void TransferringPlayerData()
+    protected override void TransferringPlayerData()
     { 
-        if (CanUpgrade()) 
+        if (CanBuild()) 
         {
-            _player.AddToTotalCapital(_builder.baseIncomeBuild);
+            IncomeController.instance.IncreaseCapital(builderBase.baseIncomeBuild);
         }
     }
     public void ChangeUIBuilder()
     {
-        if (CanUpgrade())
+        if (CanBuild())
         {
-            _viewer.BuildView(_builder.name, _builder.baseIncomeBuild, _upgradeBuild.level, _upgradeBuild.upgradeCost, _informationBuild);
+            _viewer.BuildView(builderBase.name, builderBase.baseIncomeBuild, upgradeBuild.level, upgradeBuild.upgradeCost, _informationBuild);
         }
         else
         {
-            _viewer.BuildView(_builder.name, _builder.baseIncomeBuild, _builder.costBuilding, _upgradeBuild.level, _upgradeBuild.upgradeCost, _informationBuild);
+            _viewer.BuildView(builderBase.name, builderBase.baseIncomeBuild, builderBase.costBuilding, upgradeBuild.level, upgradeBuild.upgradeCost, _informationBuild);
         }
         
+    }
+
+    protected override void FactoryCreateBuild()
+    {
+        builderBase = factoryBuild.CreateBuilderBase("Shop", 2, 300);
+        upgradeBuild = factoryBuild.CreateUpgradeBuild(200, 0, 2);
+    }
+    private void UpdateBuildAndIncome()
+    {
+        upgradeBuild.UpgradeLevelBuild();
+        builderBase.UpdateBaseIncome();
+    }
+    public void ChangeBuildService()
+    {
+        buildableService.SetUpdateCost(upgradeBuild.upgradeCost, builderBase.costBuilding, upgradeBuild.modificatoryUpgradeCost);
+        ChangeBuilderService(buildableService);
     }
 }

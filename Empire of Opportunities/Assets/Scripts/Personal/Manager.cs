@@ -53,7 +53,7 @@ public class Manager : MonoBehaviour
     {
         if (_buildableState != null && _buildableState.IsBuildable && _upgradePersonal.LevelPersonal>0)
         {
-            _mainPlayer.AddToTotalCapital(_personal.BaseIncome);
+            IncomeController.instance.IncreaseCapital(_personal.BaseIncome);
         }
     }
     public void UpdateCostService()
