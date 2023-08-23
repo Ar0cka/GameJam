@@ -24,6 +24,7 @@ public class ButtonControllerShopStore : MonoBehaviour
     {
         buyButton.onClick.AddListener(OnClick);
     }
+  
     private void Start()
     {
         buyButton.gameObject.SetActive(false);
