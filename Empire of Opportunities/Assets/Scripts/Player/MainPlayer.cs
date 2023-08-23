@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainPlayer : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] private UIViewManager _viewManager;
+    [SerializeField] private TextMeshProUGUI _incomePlayerInformation;
+    [SerializeField] private TextMeshProUGUI _moneyView;
+
     private int InitialCapital = 1000;
     public int currentCapital;
-
-    private UIViewManager moneyComponent;
 
     private void Start()
     {
         currentCapital = InitialCapital;
-        moneyComponent = FindObjectOfType<UIViewManager>().GetComponent<UIViewManager>();
     }
     private void Update()
     {
-        moneyComponent.MoneyView(currentCapital);
+       _viewManager.MoneyView(currentCapital, _moneyView);
     }
     public void UpdateCapital(int deductCapital)
     {
@@ -31,5 +34,6 @@ public class MainPlayer : MonoBehaviour
     public void AddToTotalCapital(int amount)
     {
         currentCapital += amount;
+        _viewManager.SetMoneyIncome(amount, _incomePlayerInformation);
     }
 }
