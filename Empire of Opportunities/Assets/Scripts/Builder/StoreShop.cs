@@ -51,7 +51,7 @@ public class StoreShop : AbstractBuilder
         builderBase = factoryBuild.CreateBuilderBase("Shop", 2, 300);
         upgradeBuild = factoryBuild.CreateUpgradeBuild(200, 0, 2);
     }
-    protected override void UpdateBuildAndIncome()
+    private void UpdateBuildAndIncome()
     {
         upgradeBuild.UpgradeLevelBuild();
         builderBase.UpdateBaseIncome();
