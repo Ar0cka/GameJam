@@ -8,39 +8,26 @@ using Zenject;
 
 public class ButtonControllerShopStore : MonoBehaviour
 { 
-    [Header("Shop")]
-    [SerializeField] private StoreShop shop;
-    [Header("Player")]
-    [SerializeField] private MainPlayer mainPlayer;
-    [Header("UI")]
-    [SerializeField] private UIViewManager _viewer;
     [SerializeField] private Button buyButton;
+
     [SerializeField] private Contract contract;
+
+    [SerializeField] private StoreShop shop;
+
+    [SerializeField] private MainPlayer mainPlayer;
+
+    [SerializeField] private UIViewManager _viewer;
 
     [Inject] private IBuilderService _builderService;
     [Inject] private IBuildableState _buildableState;
 
-    private void Awake()
-    {
-        buyButton.onClick.AddListener(OnClick);
-    }
     private void Start()
     {
+        buyButton.onClick.AddListener(OnClick);
+
         buyButton.gameObject.SetActive(false);
-        shop.ChangeBuildService();
     }
-    private void OnEnable()
-    {
-        shop.OnChangeBuilderService += HandheldBuildServiceChange;
-    }
-    private void OnDisable()
-    {
-        shop.OnChangeBuilderService -= HandheldBuildServiceChange;
-    }
-    private void HandheldBuildServiceChange(IBuilderService builderService)
-    {
-        _builderService = builderService;
-    }
+
     private void OnClick()
     {
         if (_buildableState != null)
@@ -70,5 +57,10 @@ public class ButtonControllerShopStore : MonoBehaviour
     private void Purchase()
     {
         buyButton.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        buyButton.onClick.RemoveListener(OnClick);
     }
 }
