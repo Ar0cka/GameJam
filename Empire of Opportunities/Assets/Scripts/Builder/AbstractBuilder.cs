@@ -33,6 +33,7 @@ public abstract class AbstractBuilder : MonoBehaviour
         this.buildableService = _buildableService;
         OnChangeBuilderService?.Invoke(buildableService);
     }
+    protected abstract void UpdateBuildAndIncome();
     protected bool CanBuild()
     {
         return buildableState != null && buildableState.IsBuildable;
