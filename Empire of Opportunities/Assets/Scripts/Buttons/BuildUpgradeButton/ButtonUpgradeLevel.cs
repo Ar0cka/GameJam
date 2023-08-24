@@ -24,7 +24,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void Update()
     {
-        if (_deduct.currentCapital >= _builderService.upgradeCost && _buildableState.IsBuildable) 
+        if (_deduct.currentCapital >= _builderService.upgradeCost && _buildableState.IsBuildableShop) 
         {
             _upgradeLevel.interactable = true;
         }
@@ -37,7 +37,7 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void OnClick()
     {
-        if (_buildableState != null && _buildableState.IsBuildable)
+        if (_buildableState != null && _buildableState.IsBuildableShop)
         {
             if (_deduct.currentCapital >= _builderService.upgradeCost)
             {

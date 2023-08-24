@@ -20,22 +20,23 @@ public class StoreShop : AbstractBuilder
     }
     public void upgradeCost()
     {
-        if (CanBuild()) 
+        if (buildableState.IsBuildableShop) 
         {
             UpdateBuildAndIncome();
         } 
     }
 
     protected override void TransferringPlayerData()
-    { 
-        if (CanBuild()) 
+    {
+        //Debug.Log("Shop " + buildableState.IsBuildableShop);
+        if (buildableState.IsBuildableShop) 
         {
             IncomeController.instance.IncreaseCapital(builderBase.baseIncomeBuild);
         }
     }
     public void ChangeUIBuilder()
     {
-        if (CanBuild())
+        if (buildableState.IsBuildableShop)
         {
             _viewer.BuildView(builderBase.name, builderBase.baseIncomeBuild, upgradeBuild.level, upgradeBuild.upgradeCost, _informationBuild);
         }
@@ -48,8 +49,8 @@ public class StoreShop : AbstractBuilder
 
     protected override void FactoryCreateBuild()
     {
-        builderBase = factoryBuild.CreateBuilderBase("Shop", 2, 300);
-        upgradeBuild = factoryBuild.CreateUpgradeBuild(200, 0, 2);
+        builderBase = factoryBuild.CreateBuilderBase("Shop", 2, 25);
+        upgradeBuild = factoryBuild.CreateUpgradeBuild(25, 0, 7);
     }
     private void UpdateBuildAndIncome()
     {

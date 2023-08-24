@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class MainPlayer : MonoBehaviour
 {
+    private BuilderType typeBuild;
     [Header("UI")]
     [SerializeField] private UIViewManager _viewManager;
     [SerializeField] private TextMeshProUGUI _incomePlayerInformation;
@@ -36,4 +37,5 @@ public class MainPlayer : MonoBehaviour
         currentCapital += amount;
         _viewManager.SetMoneyIncome(amount, _incomePlayerInformation);
     }
+    
 }

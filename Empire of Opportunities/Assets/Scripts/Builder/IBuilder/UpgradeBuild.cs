@@ -22,6 +22,6 @@ public class UpgradeBuild : IUpgradeBuild
     public void UpgradeLevelBuild()
     {
         _level++;
-        _upgradeCost = _upgradeCost * _modificatoryUpgradeCost;
+        _upgradeCost = _upgradeCost + _modificatoryUpgradeCost;
     }
 }

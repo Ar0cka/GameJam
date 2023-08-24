@@ -74,6 +74,6 @@ public class BuyPersonalButton : MonoBehaviour
 
     private bool CanUpgrade()
     {
-        return _mainPlayer.currentCapital >= _personalSalesmanService.upgradeCost && buildableState.IsBuildable;
+        return _mainPlayer.currentCapital >= _personalSalesmanService.upgradeCost && buildableState.IsBuildableShop;
     }
 }

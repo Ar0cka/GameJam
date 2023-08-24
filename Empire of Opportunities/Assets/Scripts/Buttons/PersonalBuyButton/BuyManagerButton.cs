@@ -18,9 +18,6 @@ public class BuyManagerButton : MonoBehaviour
     [Inject] private IBuildableState buildableState;
     [Inject] private IPesonalService _personalManagerService;
 
-    private float checkInterval = 1.5f;
-    private float lastCheck;
-
     private void Awake()
     {
         _buyManagerButton.onClick.AddListener(OnClick);
@@ -64,7 +61,7 @@ public class BuyManagerButton : MonoBehaviour
     }
     private bool CanUpgrade()
     {
-        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildable;
+        return _mainPlayer.currentCapital >= _personalManagerService.upgradeCost && buildableState.IsBuildableShop;
     }
 
     private void CheckUpdateCost()

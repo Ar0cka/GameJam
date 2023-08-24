@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBuildableState
+public enum BuilderType
 {
-  bool IsBuildable { get; }
-
-  void SetBuilded();
+  None,
+  Shop,
+  DNS,
 }

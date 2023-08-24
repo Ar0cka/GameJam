@@ -56,7 +56,7 @@ public class Salesman : MonoBehaviour
 
     private void AddToCapitalMainPlayer()
     {
-        if (_buildableState != null && _buildableState.IsBuildable && _upgradePersonal.LevelPersonal > 0)
+        if (_buildableState != null && _buildableState.IsBuildableShop && _upgradePersonal.LevelPersonal > 0)
         {
             IncomeController.instance.IncreaseCapital(_basePersonal.BaseIncome);
         } 
