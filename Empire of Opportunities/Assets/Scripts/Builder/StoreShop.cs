@@ -28,7 +28,6 @@ public class StoreShop : AbstractBuilder
 
     protected override void TransferringPlayerData()
     {
-        //Debug.Log("Shop " + buildableState.IsBuildableShop);
         if (buildableState.IsBuildableShop) 
         {
             IncomeController.instance.IncreaseCapital(builderBase.baseIncomeBuild);

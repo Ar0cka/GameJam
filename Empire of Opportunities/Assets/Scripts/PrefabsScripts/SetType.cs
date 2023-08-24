@@ -11,26 +11,23 @@ public class SetType : MonoBehaviour
     private BuilderType selectedType;
 
 
-    public event Action<BuilderType> OnBuildingTypeSelected;
-
     private void OnMouseEnter()
     {
+        if (gameObject.name == "Shop")
+        {
+            selectedType = BuilderType.Shop;
+            Debug.Log("Set type " + selectedType);
+        }
         if (gameObject.name == "DNS")
         {
             selectedType = BuilderType.DNS;
-            Debug.Log("Set DNS");
+            Debug.Log("Set type " + selectedType);
         }
-        else if (gameObject.name == "Shop")
-        {
-            selectedType = BuilderType.Shop;
-            Debug.Log("Set Shop");
-        }
-       
     }
-    public void BuildTypeSelected()
+    public BuilderType SelectedType()
     {
-        Debug.Log("Type selected " +  selectedType);
-        OnBuildingTypeSelected?.Invoke(selectedType);
+        Debug.Log("return Type " + selectedType);
+        return selectedType;
     }
 }
 

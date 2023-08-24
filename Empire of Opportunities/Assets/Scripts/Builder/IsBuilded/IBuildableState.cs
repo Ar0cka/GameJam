@@ -7,6 +7,9 @@ public interface IBuildableState
   bool IsBuildableShop { get; }
   bool IsBuildableDNS { get; }
 
+
+
   void SetBuilderShop();
   void SetBuilderDNS();
+
 }

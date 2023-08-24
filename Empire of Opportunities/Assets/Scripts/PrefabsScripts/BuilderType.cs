@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum BuilderType
 {
-  None,
   Shop,
   DNS,
+  HardwareStore,
 }

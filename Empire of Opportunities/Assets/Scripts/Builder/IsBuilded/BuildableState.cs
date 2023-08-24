@@ -11,6 +11,7 @@ public class BuildableState : MonoBehaviour, IBuildableState
     public bool IsBuildableShop => _isBuildableShop;
     public bool IsBuildableDNS => _isBuildableDNS;
 
+
     public void SetBuilderShop()
     {
         _isBuildableShop = true;

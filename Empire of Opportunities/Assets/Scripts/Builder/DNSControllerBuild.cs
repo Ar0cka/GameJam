@@ -24,7 +24,6 @@ public class DNSControllerBuild : AbstractBuilder
 
     protected override void TransferringPlayerData()
     {
-        //Debug.Log("DNS " + buildableState.IsBuildableDNS);
         if (buildableState.IsBuildableDNS)
         {
             IncomeController.instance.IncreaseCapital(builderBase.baseIncomeBuild);
