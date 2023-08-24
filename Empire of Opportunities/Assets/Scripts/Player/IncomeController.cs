@@ -31,12 +31,12 @@ public class IncomeController : MonoBehaviour
 
     public void IncreaseCapital(int amount)
     {
-        IncomeCapital += amount;
+        IncomeCapital = amount;
     }
 
     private void AddToCapitalPlayer()
     {
         player.AddToTotalCapital(IncomeCapital);
-        IncomeCapital = 0;
+        //IncomeCapital = 0;
     }
 }
