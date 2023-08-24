@@ -26,7 +26,7 @@ public class IncomeController : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("AddToCapitalPlayer", 0, 1.5f);
+        InvokeRepeating("AddToCapitalPlayer", 0, 2f);
     }
 
     public void IncreaseCapital(int amount)
