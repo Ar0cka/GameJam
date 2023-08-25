@@ -5109,15 +5109,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 821411868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8285ef9a76e0a34cb2bdc4f0070c582, type: 3}
+  m_Script: {fileID: 11500000, guid: d275f7a9d81d7d642a756e3a70d14780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: {fileID: 581591634}
-  dns: {fileID: 1196961924}
-  mainPlayer: {fileID: 821411869}
-  _viewer: {fileID: 1285115442}
-  buyButton: {fileID: 1663028339}
-  contract: {fileID: 200505270}
+  shop: {fileID: 0}
+  dns: {fileID: 0}
+  mainPlayer: {fileID: 0}
+  _viewer: {fileID: 0}
+  buyButton: {fileID: 0}
+  contract: {fileID: 0}
 --- !u!114 &821411872
 MonoBehaviour:
   m_ObjectHideFlags: 0
