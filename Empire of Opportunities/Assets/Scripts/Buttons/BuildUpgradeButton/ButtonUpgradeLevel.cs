@@ -21,7 +21,20 @@ public class ButtonUpgradeLevel : MonoBehaviour
     {
         _upgradeLevel.onClick.AddListener(OnClick);
     }
-
+    private void OnEnable()
+    {
+        if (_buildableState.IsBuildableShop) 
+           _shop.OnChangeBuilderService += HandlerChangeService;
+    }
+    private void OnDisable()
+    {
+        if (_buildableState.IsBuildableShop)
+           _shop.OnChangeBuilderService -= HandlerChangeService;
+    }
+    private void HandlerChangeService(IBuilderService builderService)
+    {
+        _builderService = builderService;
+    }
     private void Update()
     {
         if (_deduct.currentCapital >= _builderService.upgradeCost && _buildableState.IsBuildableShop) 
@@ -37,11 +50,12 @@ public class ButtonUpgradeLevel : MonoBehaviour
 
     private void OnClick()
     {
-        if (_buildableState != null && _buildableState.IsBuildableShop)
+        if (_buildableState.IsBuildableShop)
         {
             if (_deduct.currentCapital >= _builderService.upgradeCost)
             {
-                _deduct.UpdateCapital(_builderService.upgradeCost);
+                _deduct.UpdateCapital(_builderService.upgradeCost);              
+                _shop.ChangeBuildService();
                 _shop.upgradeCost();
             }
             _shop.ChangeUIBuilder();

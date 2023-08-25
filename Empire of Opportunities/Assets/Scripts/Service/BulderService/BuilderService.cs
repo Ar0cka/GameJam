@@ -13,7 +13,7 @@ public class BuilderService: IBuilderService
 
     public float modificatoryUpgradeCost => _modificatoryCostUpgrade;
 
-    public void SetUpdateCost( int costBuilding, int upgradeCost, float modificatoryUpgradeCost)
+    public void SetUpdateCost(int upgradeCost, int costBuilding, float modificatoryUpgradeCost)
     {
         _upgradeCost = upgradeCost;
         _costBuilding = costBuilding;
