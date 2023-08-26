@@ -6,53 +6,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class Salesman : MonoBehaviour
+public class Salesman : PersonalAbstract
 {
-
-    [SerializeField] private UIViewManager _viewer;
-
-    [SerializeField] private TextMeshProUGUI _descriptionSalesman;
-
-    [SerializeField] private MainPlayer _mainPlayer;
-
-    [Inject] private IFactoryPersonal _factoryPersonal;
-    [Inject] private IBuildableState _buildableState;
-    [Inject] private IPesonalService _personalSalesmanService;
-
-    public event Action<IPesonalService> OnSalesmanServiceChange;
-
-    private IBasePersonal _basePersonal;
-    private IUpgradePersonal _upgradePersonal;
-
-    private int upgradeIncomePersonal = 2;
 
     private void Start()
     {
-        CreateFactorySalesman();
+        CreateFactoryPersonal();
 
         InvokeRepeating("AddToCapitalMainPlayer", 0, 2f);
 
         UpdatePersonalService();
 
-        UpgradeTextSalesMan();
+        UpgradeTextPersonal();
     }
 
-    public void ChangePersonalService(IPesonalService personalService)
+    public void ChangeShopService()
     {
-        _personalSalesmanService = personalService;
-        OnSalesmanServiceChange?.Invoke(_personalSalesmanService);
+        UpgradeTextPersonal();
+        UpdatePersonalService(); 
+    }
+    public void UpdatePersonal()
+    {
+        UpgradePersonal();
     }
 
-    public void UpgradeTextSalesMan()
-    {
-        _viewer.SetPersonalText(_basePersonal.Name, _basePersonal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal, _descriptionSalesman);
-    }
-
-    public void UpgradeCost()
-    {
-        _upgradePersonal.UpdateCostUpgradePersonal();
-        _basePersonal.UpdateBaseIncome(upgradeIncomePersonal);
-    }
 
     private void AddToCapitalMainPlayer()
     {
@@ -62,13 +39,7 @@ public class Salesman : MonoBehaviour
         } 
     }
 
-    public void UpdatePersonalService()
-    {
-        _personalSalesmanService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal) ;
-        ChangePersonalService(_personalSalesmanService);
-    }
-
-    private void CreateFactorySalesman()
+    protected override void CreateFactoryPersonal()
     {
         _basePersonal = _factoryPersonal.CreateBasePersonal("Salesman", 1);
         _upgradePersonal = _factoryPersonal.CreateUpgradePersonal(0, 50);

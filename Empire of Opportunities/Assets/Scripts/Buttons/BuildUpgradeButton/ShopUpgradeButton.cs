@@ -4,23 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class ButtonUpgradeLevel : MonoBehaviour
+public class ShopUpgradeButton : AbstractUpgradeCost
 {
-    [SerializeField] private Button _upgradeLevel;
-
+    [Header("Shop")]
     [SerializeField] private StoreShop _shop;
 
-    [SerializeField] private MainPlayer _deduct;
-
-    [SerializeField] private UIViewManager _viewer;
-
-    [Inject] private IBuildableState _buildableState;
-    [Inject] private IBuilderService _builderService;
-
-    private void Start()
-    {
-        _upgradeLevel.onClick.AddListener(OnClick);
-    }
     private void OnEnable()
     {
         if (_buildableState.IsBuildableShop) 
@@ -31,13 +19,10 @@ public class ButtonUpgradeLevel : MonoBehaviour
         if (_buildableState.IsBuildableShop)
            _shop.OnChangeBuilderService -= HandlerChangeService;
     }
-    private void HandlerChangeService(IBuilderService builderService)
-    {
-        _builderService = builderService;
-    }
+
     private void Update()
     {
-        if (_deduct.currentCapital >= _builderService.upgradeCost && _buildableState.IsBuildableShop) 
+        if (_deduct.currentCapital >= _builderService.upgradeCost && _buildableState.IsBuildableShop)
         {
             _upgradeLevel.interactable = true;
         }
@@ -45,10 +30,9 @@ public class ButtonUpgradeLevel : MonoBehaviour
         {
             _upgradeLevel.interactable = false;
         }
-
     }
 
-    private void OnClick()
+    protected override void OnClickUpgrade()
     {
         if (_buildableState.IsBuildableShop)
         {

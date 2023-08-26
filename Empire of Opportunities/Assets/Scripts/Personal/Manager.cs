@@ -5,67 +5,40 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class Manager : MonoBehaviour
+public class Manager : PersonalAbstract
 {
-
-    [Inject] IFactoryPersonal _factoryPersonal;
-    [Inject] IBuildableState _buildableState;
-    [Inject] IPesonalService _personalManagerService;
-
-    [SerializeField] UIViewManager _viewManager;
-    [SerializeField] TextMeshProUGUI _descriptionManager;
-
-    [SerializeField] MainPlayer _mainPlayer;
-
-    IBasePersonal _personal;
-    IUpgradePersonal _upgradePersonal;
-
-    private int upgradeIncomeManager = 4;
-
-    public event Action<IPesonalService> OnPersonalServiceChange;
-
     private void Start()
     {
-        CreateCopyInterface();
+        CreateFactoryPersonal();
 
-        InvokeRepeating("AddToCapitalIncomeManager", 0, 2);
+        InvokeRepeating("AddToCapitalMainPlayer", 0, 2f);
 
-        UpdateCostService();
+        UpdatePersonalService();
 
-        UpdateManagerUI();
-    }
-    private void ChangePersonalService(IPesonalService newPersonalService)
-    {
-        _personalManagerService = newPersonalService;
-        OnPersonalServiceChange?.Invoke(_personalManagerService);
-    }
-    public void UpdateManagerUI()
-    {
-        _viewManager.SetPersonalText(_personal.Name, _personal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal, _descriptionManager);
-    }
-    public void UpdateCost()
-    {
-        _upgradePersonal.UpdateCostUpgradePersonal();
-        _personal.UpdateBaseIncome(upgradeIncomeManager); 
+        UpgradeTextPersonal();
     }
 
-    private void AddToCapitalIncomeManager()
+    public void ChangeDNSService()
     {
-        if (_buildableState != null && _buildableState.IsBuildableShop && _upgradePersonal.LevelPersonal>0)
+        UpgradeTextPersonal();
+        UpdatePersonalService();
+    }
+    public void UpdatePersonal()
+    {
+        UpgradePersonal();
+    }
+
+    private void AddToCapitalMainPlayer()
+    {
+        if (_buildableState != null && _buildableState.IsBuildableDNS && _upgradePersonal.LevelPersonal > 0)
         {
-            IncomeController.instance.IncreaseCapital(_personal.BaseIncome);
+            IncomeController.instance.IncreaseCapital(_basePersonal.BaseIncome);
         }
     }
-    public void UpdateCostService()
-    {
-        _personalManagerService.UpgradeCostPersonal(_upgradePersonal.UpgradeCostPersonal, _upgradePersonal.LevelPersonal);
 
-        ChangePersonalService(_personalManagerService);
-    }
-    private void CreateCopyInterface()
+    protected override void CreateFactoryPersonal()
     {
-        _personal = _factoryPersonal.CreateBasePersonal("Manager", 4);
-
+        _basePersonal = _factoryPersonal.CreateBasePersonal("Manager", 4);
         _upgradePersonal = _factoryPersonal.CreateUpgradePersonal(0, 100);
     }
 }
