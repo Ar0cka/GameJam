@@ -9,7 +9,7 @@ public abstract class PersonalAbstract : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] protected UIViewManager _viewer;
-    [SerializeField] protected TextMeshProUGUI _descriptionSalesman;
+    [SerializeField] protected TextMeshProUGUI _descriptionPersonal;
     [Header("Income")]
     [SerializeField] protected int upgradeBaseIncome;
     [Header("Player")]
@@ -29,9 +29,10 @@ public abstract class PersonalAbstract : MonoBehaviour
         _personalService = personalService;
         OnServiceChange?.Invoke(_personalService);
     }
-    protected void UpgradeTextPersonal()
+    public void UpgradeTextPersonal()
     {
-        _viewer.SetPersonalText(_basePersonal.Name, _basePersonal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal, _descriptionSalesman);
+        _viewer.SetPersonalText(_basePersonal.Name, _basePersonal.BaseIncome, _upgradePersonal.LevelPersonal, _upgradePersonal.UpgradeCostPersonal, _descriptionPersonal);
+        Debug.Log("Viewer " + _viewer + " descriptionPersonal " +  _descriptionPersonal);
     }
     protected void UpgradePersonal()
     {

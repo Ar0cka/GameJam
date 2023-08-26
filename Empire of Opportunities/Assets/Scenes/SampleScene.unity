@@ -1138,8 +1138,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2108432802}
-  - {fileID: 1421807681}
+  - {fileID: 1994948666}
+  - {fileID: 930190169}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5834,7 +5834,7 @@ GameObject:
   - component: {fileID: 527055825}
   - component: {fileID: 527055824}
   - component: {fileID: 527055823}
-  - component: {fileID: 527055822}
+  - component: {fileID: 527055826}
   m_Layer: 5
   m_Name: BuyManagerButton
   m_TagString: Untagged
@@ -5863,22 +5863,6 @@ RectTransform:
   m_AnchoredPosition: {x: 157.1, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &527055822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527055820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72e6e04afe55c542999e107422f3b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buyPersonalButton: {fileID: 527055823}
-  _buttonBuyText: {fileID: 73624182}
-  _mainPlayer: {fileID: 821411869}
-  _manager: {fileID: 1421807682}
 --- !u!114 &527055823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5961,6 +5945,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527055820}
   m_CullTransparentMesh: 1
+--- !u!114 &527055826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527055820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e55f196ff6b2bf4fabe635878c3c022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buyPersonalButton: {fileID: 527055823}
+  _buttonBuyText: {fileID: 73624182}
+  _mainPlayer: {fileID: 821411869}
+  merchandiser: {fileID: 1773921075}
 --- !u!1 &528920001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3833030164116529626, guid: 44786281cb4e72a40abedbc98d0f712c, type: 3}
@@ -6465,7 +6465,7 @@ GameObject:
   - component: {fileID: 558322504}
   - component: {fileID: 558322503}
   m_Layer: 5
-  m_Name: DisriptionSalesMan
+  m_Name: DisriptionShopAssistant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6664,6 +6664,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575681888}
   m_CullTransparentMesh: 1
+--- !u!1 &580761407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580761408}
+  - component: {fileID: 580761409}
+  m_Layer: 0
+  m_Name: Shop assistant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &580761408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580761407}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 930190169}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580761409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580761407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bad3eb8483e2643a41e520f0c26a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewer: {fileID: 1285115442}
+  _descriptionPersonal: {fileID: 558322503}
+  upgradeBaseIncome: 20
+  _mainPlayer: {fileID: 821411869}
 --- !u!1 &581591633
 GameObject:
   m_ObjectHideFlags: 0
@@ -8396,6 +8444,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44786281cb4e72a40abedbc98d0f712c, type: 3}
+--- !u!1 &930190168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 930190169}
+  m_Layer: 0
+  m_Name: DNS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &930190169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930190168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 580761408}
+  - {fileID: 1773921074}
+  m_Father: {fileID: 198985597}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935269318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9239,7 +9320,7 @@ MonoBehaviour:
   _buyPersonalButton: {fileID: 1071239038}
   _buttonBuyText: {fileID: 366937689}
   _mainPlayer: {fileID: 821411869}
-  _salesman: {fileID: 2108432801}
+  _salesman: {fileID: 0}
 --- !u!114 &1071239038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9334,7 +9415,7 @@ GameObject:
   - component: {fileID: 1098891657}
   - component: {fileID: 1098891656}
   - component: {fileID: 1098891655}
-  - component: {fileID: 1098891654}
+  - component: {fileID: 1098891658}
   m_Layer: 5
   m_Name: BuyPersonalButton
   m_TagString: Untagged
@@ -9363,22 +9444,6 @@ RectTransform:
   m_AnchoredPosition: {x: 157.80002, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1098891654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098891652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d6a637be1890849abaf95761232dcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buyPersonalButton: {fileID: 1098891655}
-  _buttonBuyText: {fileID: 44013882}
-  _mainPlayer: {fileID: 821411869}
-  _salesman: {fileID: 2108432801}
 --- !u!114 &1098891655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9461,6 +9526,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098891652}
   m_CullTransparentMesh: 1
+--- !u!114 &1098891658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098891652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2107318706b94b4597dc65537e90c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buyPersonalButton: {fileID: 1098891655}
+  _buttonBuyText: {fileID: 44013882}
+  _mainPlayer: {fileID: 821411869}
+  shopAssistant: {fileID: 580761409}
 --- !u!1 &1100952924
 GameObject:
   m_ObjectHideFlags: 0
@@ -9476,7 +9557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1100952925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10426,12 +10507,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421807680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 198985597}
+  m_Father: {fileID: 1994948666}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1421807682
@@ -10447,7 +10528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewer: {fileID: 1285115442}
-  _descriptionSalesman: {fileID: 1926435977}
+  _descriptionPersonal: {fileID: 1926435977}
   upgradeBaseIncome: 4
   _mainPlayer: {fileID: 821411869}
 --- !u!1 &1425291083
@@ -11798,7 +11879,7 @@ GameObject:
   - component: {fileID: 1755797226}
   - component: {fileID: 1755797225}
   m_Layer: 5
-  m_Name: DisriptionManager
+  m_Name: DisriptionMerchandiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12071,6 +12152,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4018beedaeeaf24f84c40e382160620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1773921073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773921074}
+  - component: {fileID: 1773921075}
+  m_Layer: 0
+  m_Name: Merchandiser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1773921074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773921073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 930190169}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1773921075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773921073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482eb52814e4e17469aa3be115608e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewer: {fileID: 1285115442}
+  _descriptionPersonal: {fileID: 1755797225}
+  upgradeBaseIncome: 50
+  _mainPlayer: {fileID: 821411869}
 --- !u!1 &1780515054
 GameObject:
   m_ObjectHideFlags: 0
@@ -12438,7 +12567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1890009937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12987,6 +13116,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1994948665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994948666}
+  m_Layer: 0
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994948666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994948665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2108432802}
+  - {fileID: 1421807681}
+  m_Father: {fileID: 198985597}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003553974
 GameObject:
   m_ObjectHideFlags: 0
@@ -13290,7 +13452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewer: {fileID: 1285115442}
-  _descriptionSalesman: {fileID: 43063203}
+  _descriptionPersonal: {fileID: 43063203}
   upgradeBaseIncome: 2
   _mainPlayer: {fileID: 821411869}
 --- !u!4 &2108432802
@@ -13305,7 +13467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 198985597}
+  m_Father: {fileID: 1994948666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110574741

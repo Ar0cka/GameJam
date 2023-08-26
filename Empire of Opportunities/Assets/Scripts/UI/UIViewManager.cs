@@ -22,9 +22,9 @@ public class UIViewManager : MonoBehaviour
         builderText.text = "Name: " + name + ". \nIncome: " + baseIncome + ". \nLevel: " + level + ". \nUpgrade cost " + upgradeCost;
     }
 
-    public void SetPersonalText(string name, int income ,int level, int upgradeCost, TextMeshProUGUI Personaltext)
+    public void SetPersonalText(string name, int income ,int level, int upgradeCost, TextMeshProUGUI PersonalText)
     {
-        Personaltext.text ="Name: " + name + ". \nIncome: " + income + "." +
+        PersonalText.text ="Name: " + name + ". \nIncome: " + income + "." +
             " \nLevel: " + level + ". \nCost upgrade: " + upgradeCost;
     }
     public void SetMoneyIncome(int amount, TextMeshProUGUI IncomePlayer)

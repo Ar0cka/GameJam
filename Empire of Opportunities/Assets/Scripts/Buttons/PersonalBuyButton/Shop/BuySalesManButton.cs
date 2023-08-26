@@ -11,11 +11,6 @@ public class BuySalesManButton : ButtonBuyPersonalAbstract
 {
     [SerializeField] private Salesman _salesman;
 
-    private void Start()
-    {
-        _salesman.ChangeShopService();
-    }
-
     private void OnEnable()
     {
         _salesman.OnServiceChange += HandheldPersonalServiceChange;
