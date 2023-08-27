@@ -8,12 +8,6 @@ using Zenject;
 public abstract class AbstractButtonBuy : MonoBehaviour
 {
     #region Serialize
-    [Header("Shop")]
-    [SerializeField] protected StoreShop shop;
-    [SerializeField] protected DNSControllerBuild dns;
-
-    //protected SetType setType;
-    //protected BuilderType buildType;
 
     [Header("Player")]
     [SerializeField] protected MainPlayer mainPlayer;

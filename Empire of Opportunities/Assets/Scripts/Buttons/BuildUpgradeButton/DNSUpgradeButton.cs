@@ -6,7 +6,7 @@ using UnityEngine;
 public class DNSUpgradeButton : AbstractUpgradeCost
 {
     [Header("DNS")]
-    [SerializeField] private DNSControllerBuild _dns;
+    [SerializeField] private DNS _dns;
 
     #region EnableOrDisable
     private void OnEnable()

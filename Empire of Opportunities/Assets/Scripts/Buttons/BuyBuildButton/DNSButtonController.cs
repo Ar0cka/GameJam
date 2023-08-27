@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject.Asteroids;
 
-public class ButtonControllerDNS : AbstractButtonBuy
+public class DNSButtonController : AbstractButtonBuy
 {
+    [SerializeField] private DNS dns;
     protected override void Awake()
     {
         buyButton.onClick.AddListener(OnClick);
-        //setType = FindObjectOfType<SetType>().GetComponent<SetType>();
         buyButton.gameObject.SetActive(false);
     }
     private void OnEnableService()

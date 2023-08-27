@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DNSControllerBuild : AbstractBuilder
+public class Bank : AbstractBuilder
 {
+    private bool building;
     protected override void Start()
     {
         FactoryCreateBuild();
@@ -13,10 +14,12 @@ public class DNSControllerBuild : AbstractBuilder
         ChangeBuildService();
 
         ChangeUIBuilder();
+
+       ;
     }
     public void upgradeCost()
     {
-        if (buildableState.IsBuildableDNS)
+        if (buildableState.IsBuildableBank) ;
         {
             UpdateBuildAndIncome();
         }
@@ -24,14 +27,14 @@ public class DNSControllerBuild : AbstractBuilder
 
     protected override void TransferringPlayerData()
     {
-        if (buildableState.IsBuildableDNS)
+        if (buildableState.IsBuildableBank)
         {
             IncomeController.instance.IncreaseCapital(builderBase.baseIncomeBuild);
         }
     }
     public void ChangeUIBuilder()
     {
-        if (buildableState.IsBuildableDNS)
+        if (buildableState.IsBuildableBank)
         {
             _viewer.BuildView(builderBase.name, builderBase.baseIncomeBuild, upgradeBuild.level, upgradeBuild.upgradeCost, _informationBuild);
         }
@@ -44,8 +47,8 @@ public class DNSControllerBuild : AbstractBuilder
 
     protected override void FactoryCreateBuild()
     {
-        builderBase = factoryBuild.CreateBuilderBase("DNS", 15, 100);
-        upgradeBuild = factoryBuild.CreateUpgradeBuild(50, 0, 17);
+        builderBase = factoryBuild.CreateBuilderBase("Bank", 35, 250);
+        upgradeBuild = factoryBuild.CreateUpgradeBuild(80, 0, 17);
     }
     private void UpdateBuildAndIncome()
     {

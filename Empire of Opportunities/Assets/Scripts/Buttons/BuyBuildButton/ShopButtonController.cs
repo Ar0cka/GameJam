@@ -7,12 +7,12 @@ using UnityEngine.UI;
 using Zenject;
 using System.Net;
 
-public class ButtonControllerShop : AbstractButtonBuy
+public class ShopButtonController : AbstractButtonBuy
 {
+    [SerializeField] private StoreShop shop;
     protected override void Awake()
     {
         buyButton.onClick.AddListener(OnClick);
-        //setType = FindObjectOfType<SetType>().GetComponent<SetType>();
         buyButton.gameObject.SetActive(false);
     }
     private void OnEnableService()
