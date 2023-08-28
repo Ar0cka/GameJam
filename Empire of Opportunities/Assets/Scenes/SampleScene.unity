@@ -13298,7 +13298,7 @@ MonoBehaviour:
   _buyPersonalButton: {fileID: 1963414573}
   _buttonBuyText: {fileID: 2067796359}
   _mainPlayer: {fileID: 821411869}
-  _banker: {fileID: 0}
+  _creditBanker: {fileID: 433756499}
 --- !u!1 &1993195905
 GameObject:
   m_ObjectHideFlags: 0
