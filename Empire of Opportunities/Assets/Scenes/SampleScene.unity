@@ -1140,6 +1140,7 @@ Transform:
   m_Children:
   - {fileID: 1994948666}
   - {fileID: 930190169}
+  - {fileID: 1378931454}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4449,7 +4450,7 @@ GameObject:
   - component: {fileID: 286746483}
   - component: {fileID: 286746482}
   m_Layer: 5
-  m_Name: ImageManager
+  m_Name: ImageCreditBanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5738,6 +5739,54 @@ Transform:
   m_Father: {fileID: 58564861}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &433756497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433756498}
+  - component: {fileID: 433756499}
+  m_Layer: 0
+  m_Name: Credit banker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433756498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433756497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1378931454}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &433756499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433756497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b305ce4589c15ba4490f89fa2a2ad6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewer: {fileID: 1285115442}
+  _descriptionPersonal: {fileID: 1488786275}
+  upgradeBaseIncome: 15
+  _mainPlayer: {fileID: 821411869}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,7 +6824,7 @@ GameObject:
   - component: {fileID: 625553287}
   - component: {fileID: 625553286}
   m_Layer: 5
-  m_Name: DisriptionSalesMan
+  m_Name: DisriptionBanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9021,7 +9070,7 @@ GameObject:
   - component: {fileID: 1028206378}
   - component: {fileID: 1028206377}
   m_Layer: 5
-  m_Name: SalesManImage
+  m_Name: BankerImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9406,7 +9455,7 @@ GameObject:
   - component: {fileID: 1071239040}
   - component: {fileID: 1071239039}
   - component: {fileID: 1071239038}
-  - component: {fileID: 1071239037}
+  - component: {fileID: 1071239041}
   m_Layer: 5
   m_Name: BuyPersonalButton
   m_TagString: Untagged
@@ -9427,30 +9476,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 366937688}
-  m_Father: {fileID: 1368399775}
-  m_RootOrder: 0
+  m_Father: {fileID: 1346988904}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 157.79999, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1071239037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071239035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d6a637be1890849abaf95761232dcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buyPersonalButton: {fileID: 1071239038}
-  _buttonBuyText: {fileID: 366937689}
-  _mainPlayer: {fileID: 821411869}
-  _salesman: {fileID: 0}
 --- !u!114 &1071239038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9533,6 +9566,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071239035}
   m_CullTransparentMesh: 1
+--- !u!114 &1071239041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071239035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d5dee7757f23947bc87ffeb77e3017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buyPersonalButton: {fileID: 1071239038}
+  _buttonBuyText: {fileID: 366937689}
+  _mainPlayer: {fileID: 821411869}
+  _banker: {fileID: 1582628412}
 --- !u!1 &1098891652
 GameObject:
   m_ObjectHideFlags: 0
@@ -10364,7 +10413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1346988904}
   m_Layer: 5
-  m_Name: UISalesman
+  m_Name: UIBanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10383,7 +10432,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1028206376}
-  - {fileID: 1368399775}
+  - {fileID: 1071239036}
   - {fileID: 625553285}
   m_Father: {fileID: 1890009937}
   m_RootOrder: 1
@@ -10432,7 +10481,7 @@ RectTransform:
   m_AnchoredPosition: {x: 10.243, y: -87.6}
   m_SizeDelta: {x: 588.55, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1368399774
+--- !u!1 &1378931453
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10440,35 +10489,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1368399775}
-  m_Layer: 5
-  m_Name: ButtonsSalseman
+  - component: {fileID: 1378931454}
+  m_Layer: 0
+  m_Name: Bank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1368399775
-RectTransform:
+--- !u!4 &1378931454
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368399774}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1378931453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1071239036}
-  m_Father: {fileID: 1346988904}
-  m_RootOrder: 1
+  - {fileID: 1582628411}
+  - {fileID: 433756498}
+  m_Father: {fileID: 198985597}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 157.79999, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1379460962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10914,7 +10959,7 @@ GameObject:
   - component: {fileID: 1488786276}
   - component: {fileID: 1488786275}
   m_Layer: 5
-  m_Name: DisriptionManager
+  m_Name: DisriptionCreditBanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11356,6 +11401,54 @@ MonoBehaviour:
   _buttonBuyText: {fileID: 55006169}
   _mainPlayer: {fileID: 821411869}
   _salesman: {fileID: 2108432801}
+--- !u!1 &1582628410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582628411}
+  - component: {fileID: 1582628412}
+  m_Layer: 0
+  m_Name: Banker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1582628411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582628410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1378931454}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582628412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582628410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e160aaa586af246b51d21bb76096a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewer: {fileID: 1285115442}
+  _descriptionPersonal: {fileID: 625553286}
+  upgradeBaseIncome: 15
+  _mainPlayer: {fileID: 821411869}
 --- !u!1 &1584648527
 GameObject:
   m_ObjectHideFlags: 0
@@ -12340,7 +12433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1780515055}
   m_Layer: 5
-  m_Name: UIManager
+  m_Name: UICreditBanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13079,9 +13172,9 @@ GameObject:
   - component: {fileID: 1963414575}
   - component: {fileID: 1963414574}
   - component: {fileID: 1963414573}
-  - component: {fileID: 1963414572}
+  - component: {fileID: 1963414576}
   m_Layer: 5
-  m_Name: BuyManagerButton
+  m_Name: BuyCreditBankerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13108,22 +13201,6 @@ RectTransform:
   m_AnchoredPosition: {x: 157.1, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1963414572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963414570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72e6e04afe55c542999e107422f3b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buyPersonalButton: {fileID: 1963414573}
-  _buttonBuyText: {fileID: 2067796359}
-  _mainPlayer: {fileID: 821411869}
-  _manager: {fileID: 1421807682}
 --- !u!114 &1963414573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13206,6 +13283,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963414570}
   m_CullTransparentMesh: 1
+--- !u!114 &1963414576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963414570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb4c077fb35a8c45b0e5cf88ec34e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buyPersonalButton: {fileID: 1963414573}
+  _buttonBuyText: {fileID: 2067796359}
+  _mainPlayer: {fileID: 821411869}
+  _banker: {fileID: 0}
 --- !u!1 &1993195905
 GameObject:
   m_ObjectHideFlags: 0
