@@ -6207,6 +6207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 788308693}
     - target: {fileID: 3833030164116529624, guid: 44786281cb4e72a40abedbc98d0f712c, type: 3}
+      propertyPath: _newSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf7e2b548a5524e49ab24884910251ba, type: 3}
+    - target: {fileID: 3833030164116529624, guid: 44786281cb4e72a40abedbc98d0f712c, type: 3}
       propertyPath: _objectsForBlock.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -14221,6 +14225,10 @@ PrefabInstance:
       propertyPath: _buyButton
       value: 
       objectReference: {fileID: 355099163}
+    - target: {fileID: 3833030164116529624, guid: 44786281cb4e72a40abedbc98d0f712c, type: 3}
+      propertyPath: _newSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a04d66f05d688554385cbd516a0e62fc, type: 3}
     - target: {fileID: 3833030164116529624, guid: 44786281cb4e72a40abedbc98d0f712c, type: 3}
       propertyPath: _objectsForBlock.Array.size
       value: 2
