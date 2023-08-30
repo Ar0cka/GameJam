@@ -850,7 +850,7 @@ Transform:
   - {fileID: 431748563}
   - {fileID: 22336194}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &73624180
 GameObject:
@@ -1187,7 +1187,7 @@ Transform:
   m_Children:
   - {fileID: 1470746217}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &200505270
 MonoBehaviour:
@@ -7772,9 +7772,6 @@ GameObject:
   - component: {fileID: 821411870}
   - component: {fileID: 821411869}
   - component: {fileID: 821411872}
-  - component: {fileID: 821411873}
-  - component: {fileID: 821411874}
-  - component: {fileID: 821411875}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7825,57 +7822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac61236f09b25340850834b335d289b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &821411873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821411868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d275f7a9d81d7d642a756e3a70d14780, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPlayer: {fileID: 821411869}
-  _viewer: {fileID: 1285115442}
-  buyButton: {fileID: 355099163}
-  contract: {fileID: 200505270}
-  dns: {fileID: 1196961924}
---- !u!114 &821411874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821411868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad2ce0e4f0b3b6840b49bd0885e2ec2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPlayer: {fileID: 821411869}
-  _viewer: {fileID: 1285115442}
-  buyButton: {fileID: 1663028339}
-  contract: {fileID: 200505270}
-  shop: {fileID: 581591634}
---- !u!114 &821411875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821411868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 264acfc0ae77c234baf7d008f7862b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPlayer: {fileID: 821411869}
-  _viewer: {fileID: 1285115442}
-  buyButton: {fileID: 788308693}
-  contract: {fileID: 200505270}
-  bank: {fileID: 2054433037}
 --- !u!1 &829113238
 GameObject:
   m_ObjectHideFlags: 0
@@ -8394,6 +8340,91 @@ RectTransform:
   m_AnchoredPosition: {x: -245.62, y: 182.67}
   m_SizeDelta: {x: 104.74, y: 28.15}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &879541390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879541394}
+  - component: {fileID: 879541393}
+  - component: {fileID: 879541392}
+  - component: {fileID: 879541391}
+  m_Layer: 0
+  m_Name: BuyButtonControllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &879541391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879541390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264acfc0ae77c234baf7d008f7862b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPlayer: {fileID: 821411869}
+  _viewer: {fileID: 1285115442}
+  buyButton: {fileID: 788308693}
+  contract: {fileID: 200505270}
+  bank: {fileID: 2054433037}
+--- !u!114 &879541392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879541390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2ce0e4f0b3b6840b49bd0885e2ec2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPlayer: {fileID: 821411869}
+  _viewer: {fileID: 1285115442}
+  buyButton: {fileID: 1663028339}
+  contract: {fileID: 200505270}
+  shop: {fileID: 581591634}
+--- !u!114 &879541393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879541390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d275f7a9d81d7d642a756e3a70d14780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPlayer: {fileID: 821411869}
+  _viewer: {fileID: 1285115442}
+  buyButton: {fileID: 355099163}
+  contract: {fileID: 200505270}
+  dns: {fileID: 1196961924}
+--- !u!4 &879541394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879541390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3670886, y: -1.5933151, z: 0.08383583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893342612
 GameObject:
   m_ObjectHideFlags: 0
@@ -10273,7 +10304,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293045771
 GameObject:
@@ -10318,7 +10349,7 @@ Transform:
   m_Children:
   - {fileID: 245629609}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1296430045
 GameObject:
@@ -11925,7 +11956,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1663028338 stripped
 RectTransform:
