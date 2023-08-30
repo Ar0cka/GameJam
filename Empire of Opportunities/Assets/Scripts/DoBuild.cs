@@ -10,6 +10,8 @@ public class DoBuild : MonoBehaviour
     [SerializeField] private Button _buyButton;
     [SerializeField] private Sprite _newSprite;
 
+    [SerializeField] private List<GameObject> _objectsForBlock;
+
     private SpriteRenderer _spriteRenderer;
 
     private bool _isSelected = false;
@@ -22,7 +24,7 @@ public class DoBuild : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(_isBuilded == false)
+        if(_isBuilded == false && IsObjectsDontActive())
         {
             _buyButton.onClick.AddListener(TryChangeSprite);
             _buyButton.gameObject.SetActive(true);
@@ -49,5 +51,17 @@ public class DoBuild : MonoBehaviour
             _isBuilded = true;
             _buyButton.gameObject.SetActive(false);
         }
+    }
+
+    private bool IsObjectsDontActive()
+    {
+        foreach (GameObject item in _objectsForBlock)
+        {
+            if (item.activeInHierarchy == true)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
